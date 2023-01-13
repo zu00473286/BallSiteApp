@@ -6,22 +6,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import tw.myapp.ballsiteapp.databinding.ActivityVenueRentalBinding;
+import tw.myapp.ballsiteapp.databinding.ActivitySettlementBinding;
 
-public class VenueRentalActivity extends AppCompatActivity {
+public class SettlementActivity extends AppCompatActivity {
 
-    ActivityVenueRentalBinding binding;
+    ActivitySettlementBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityVenueRentalBinding.inflate(getLayoutInflater());
+        binding = ActivitySettlementBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
-        binding.btn2.setOnClickListener(new View.OnClickListener() {
+        binding.btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentMaintain = new Intent(VenueRentalActivity.this, SiteActivity.class);
+                Intent intentMaintain = new Intent(SettlementActivity.this, MainActivity.class);
                 startActivity(intentMaintain);
             }
         });
