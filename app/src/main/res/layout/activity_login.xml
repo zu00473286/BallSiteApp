@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:text="登入"
         tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="433dp" />
+        tools:layout_editor_absoluteY="479dp" />
 
     <CheckBox
         android:id="@+id/checkBox"
