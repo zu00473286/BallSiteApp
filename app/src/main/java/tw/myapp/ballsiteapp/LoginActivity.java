@@ -3,7 +3,6 @@ package tw.myapp.ballsiteapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -98,7 +97,7 @@ public class LoginActivity extends AppCompatActivity {
                 RequestBody body = RequestBody.create(packet.toString(), mType);
 
                 Request request = new Request.Builder()
-                        .url("http://192.168.255.14:8123/api/member/login")
+                        .url("http://192.168.255.58:8123/api/member/login")
                         .post(body)
                         .build();
 
