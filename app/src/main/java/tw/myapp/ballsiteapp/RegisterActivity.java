@@ -41,17 +41,11 @@ public class RegisterActivity extends AppCompatActivity {
                 contextEditor.putString("username", binding.NameText.getText().toString());
                 contextEditor.putBoolean("isLogin", true);
                 contextEditor.apply();
-                Toast.makeText(RegisterActivity.this, "登入成功", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivity.this, "註冊成功", Toast.LENGTH_SHORT).show();
                 Intent intentToMeetingRoom = new Intent(RegisterActivity.this, MainActivity.class);
                 startActivity(intentToMeetingRoom);
             } else {
-                SharedPreferences.Editor contextEditor = RegisterActivity.this.getSharedPreferences("user_info", MODE_PRIVATE).edit();
-                contextEditor.putString("username", "");
-                contextEditor.putBoolean("isLogin", false);
-                contextEditor.apply();
-
-                // 確認清除
-                Toast.makeText(RegisterActivity.this, bundle.getString("mesg"), Toast.LENGTH_LONG).show();
+                Toast.makeText(RegisterActivity.this, "註冊失敗", Toast.LENGTH_SHORT).show();
             }
         }
     };
@@ -85,42 +79,47 @@ public class RegisterActivity extends AppCompatActivity {
                         .url("http://192.168.255.58:8123/api/member/register")
                         .post(body)
                         .build();
+                RegisterActivity.SimpaleAPIWorker apiCaller = new RegisterActivity.SimpaleAPIWorker(request);
+                executor.execute(apiCaller);
+
+
                 Toast.makeText(RegisterActivity.this, "註冊成功", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
 
             }
         });
-        class SimpaleAPIWorker implements Runnable {
-            OkHttpClient client;
-            Request request;
 
-            public SimpaleAPIWorker(Request request) {
-                client = new OkHttpClient();
-                this.request = request;
-            }
+    }
+    class SimpaleAPIWorker implements Runnable {
+        OkHttpClient client;
+        Request request;
 
-            @Override
-            public void run() {
-                try {
-                    Response response = client.newCall(request).execute();
-                    String responseString = response.body().string();
-                    Log.w("api回應", responseString);
-                    // Response 也應該是 JSON格式回傳後 由 app端進行分析 確認登入結果
-                    JSONObject result = new JSONObject(responseString);
-                    Message m = RegisterHandler.obtainMessage();
-                    Bundle bundle = new Bundle();
-                    if( result.getInt("status")== 000) {
-                        bundle.putString("mesg", result.getString("mesg"));
-                        bundle.putInt("status",result.getInt("status") );
-                    } else {
-                        bundle.putString("mesg", "登入失敗,請確認有無帳號,或密碼是否有誤");
-                        bundle.putInt("status",result.getInt("status") );
-                    }
-                    m.setData(bundle);
-                    RegisterHandler.sendMessage(m);
-                } catch (Exception e) {
-                    e.printStackTrace();
+        public SimpaleAPIWorker(Request request) {
+            client = new OkHttpClient();
+            this.request = request;
+        }
+
+        @Override
+        public void run() {
+            try {
+                Response response = client.newCall(request).execute();
+                String responseString = response.body().string();
+                Log.w("api回應", responseString);
+                // Response 也應該是 JSON格式回傳後 由 app端進行分析 確認登入結果
+                JSONObject result = new JSONObject(responseString);
+                Message m = RegisterHandler.obtainMessage();
+                Bundle bundle = new Bundle();
+                if( result.getInt("status")== 000) {
+                    bundle.putString("mesg", result.getString("mesg"));
+                    bundle.putInt("status",result.getInt("status") );
+                } else {
+                    bundle.putString("mesg", "登入失敗,請確認有無帳號,或密碼是否有誤");
+                    bundle.putInt("status",result.getInt("status") );
                 }
+                m.setData(bundle);
+                RegisterHandler.sendMessage(m);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
