@@ -3,7 +3,6 @@ package tw.myapp.ballsiteapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -20,13 +19,14 @@ public class MemberProfileActivity extends AppCompatActivity {
     SQLiteDatabase db;
     SharedPreferences activityPreference;
     ExecutorService executor ;
+
     final static String createTable =
             "create table if not exists restaurant(" +
                     "member_id text," +
                     "name text," +
                     "mobile text," +
                     "email text," +
-                    "asswd text);";
+                    "passwd text);";
     Handler dataHandler = new Handler(Looper.getMainLooper()) {
         // 當 網路下載的執行緒 從觀光局網站下載 JSON後會傳到這個 Handler 進行處理
         // 1. 可以選擇在 Handler 進行轉換
@@ -42,16 +42,12 @@ public class MemberProfileActivity extends AppCompatActivity {
                 db.execSQL(createTable);
                 jsonString = bundle.getString("data");
             }
-
         }
-
     };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMemberProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-
     }
 }
