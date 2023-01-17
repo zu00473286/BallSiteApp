@@ -17,7 +17,7 @@ public class SiteActivity extends AppCompatActivity {
         binding = ActivitySiteBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.btn3.setOnClickListener(new View.OnClickListener() {
+        binding.OkBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intentMaintain = new Intent(SiteActivity.this, VenueRentalActivity.class);
