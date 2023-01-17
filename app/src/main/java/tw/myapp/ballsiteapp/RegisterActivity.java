@@ -1,6 +1,5 @@
 package tw.myapp.ballsiteapp;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -31,29 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
     SharedPreferences userData;
     ExecutorService executor;
     Handler RegisterHandler = new Handler(Looper.getMainLooper()) {
-        @Override
-        public void handleMessage(@NonNull Message msg) {
-            super.handleMessage(msg);
-            Bundle bundle = msg.getData();
-            if( bundle.getInt("status")== 000) {
-                // 記錄使用者相關資訊 到 context SharedPreferences 分享給其他 Activities 查詢
-                SharedPreferences.Editor contextEditor = RegisterActivity.this.getSharedPreferences("user_info",MODE_PRIVATE).edit();
-                contextEditor.putString("username",binding.NameText.getText().toString());
-                contextEditor.putBoolean("isLogin",true);
-                contextEditor.apply();
-                Toast.makeText(RegisterActivity.this, "註冊成功", Toast.LENGTH_SHORT).show();
-                Intent intentToMeetingRoom = new Intent(RegisterActivity.this, MainActivity.class);
-                startActivity(intentToMeetingRoom);
-            } else {
-                SharedPreferences.Editor contextEditor = RegisterActivity.this.getSharedPreferences("user_info",MODE_PRIVATE).edit();
-                contextEditor.putString("username","");
-                contextEditor.putBoolean("isLogin",false);
-                contextEditor.apply();
-                // 確認清除
-                Toast.makeText(RegisterActivity.this, bundle.getString("mesg"), Toast.LENGTH_LONG).show();
-            }
 
-        }
     };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,8 +61,6 @@ public class RegisterActivity extends AppCompatActivity {
                         .url("http://192.168.255.58:8123/api/member/register")
                         .post(body)
                         .build();
-                SimpaleAPIWorker apiCaller = new SimpaleAPIWorker(request);
-                executor.execute(apiCaller);
                 Toast.makeText(RegisterActivity.this, "註冊成功", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
 
@@ -110,7 +85,7 @@ public class RegisterActivity extends AppCompatActivity {
                     JSONObject result = new JSONObject(responseString);
                     Message m = RegisterHandler.obtainMessage();
                     Bundle bundle = new Bundle();
-                    if( result.getInt("status")== 000) {
+                    if( result.getInt("status")== 11) {
                         bundle.putString("mesg", result.getString("mesg"));
                         bundle.putInt("status",result.getInt("status") );
                     } else {
