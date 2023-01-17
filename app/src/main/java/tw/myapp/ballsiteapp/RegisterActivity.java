@@ -16,6 +16,7 @@ import android.widget.Toast;
 import org.json.JSONObject;
 
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -39,7 +40,7 @@ public class RegisterActivity extends AppCompatActivity {
                 // 記錄使用者相關資訊 到 context SharedPreferences 分享給其他 Activities 查詢
                 SharedPreferences.Editor contextEditor = RegisterActivity.this.getSharedPreferences("user_info", MODE_PRIVATE).edit();
                 contextEditor.putString("username", binding.NameText.getText().toString());
-                contextEditor.putBoolean("isLogin", true);
+                contextEditor.putBoolean("register", true);
                 contextEditor.apply();
                 Toast.makeText(RegisterActivity.this, "註冊成功", Toast.LENGTH_SHORT).show();
                 Intent intentToMeetingRoom = new Intent(RegisterActivity.this, MainActivity.class);
@@ -54,6 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityRegisterBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        executor = Executors.newSingleThreadExecutor();
         binding.RegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,7 +86,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                 Toast.makeText(RegisterActivity.this, "註冊成功", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+              //  Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
 
             }
         });
