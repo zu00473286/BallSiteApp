@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:background="@drawable/sport1">
 
     <TextView
         android:id="@+id/textView8"
@@ -24,11 +25,10 @@
         android:layout_marginStart="148dp"
         android:layout_marginTop="140dp"
         android:ems="10"
+        android:hint="輸入帳號"
         android:inputType="textPersonName"
-        android:text="帳號:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="我要輸入帳號" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
         android:id="@+id/ckRemember"
@@ -47,10 +47,10 @@
         android:layout_marginStart="148dp"
         android:layout_marginTop="216dp"
         android:ems="10"
+        android:hint="輸入密碼"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="這邊輸入密碼" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/Pass"
@@ -80,6 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="240dp"
         android:layout_marginTop="348dp"
+        android:backgroundTint="#206CA5"
         android:text="忘記密碼"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -90,6 +91,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
         android:layout_marginTop="348dp"
+        android:backgroundTint="#206CA5"
         android:text="登入"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

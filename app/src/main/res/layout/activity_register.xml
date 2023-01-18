@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".RegisterActivity"
+    android:background="@drawable/sport1">
 
     <TextView
         android:id="@+id/txtMap"
@@ -44,8 +45,9 @@
         android:layout_width="215dp"
         android:layout_height="41dp"
         android:layout_marginStart="172dp"
-        android:layout_marginTop="376dp"
+        android:layout_marginTop="380dp"
         android:ems="10"
+        android:hint="請再次輸入密碼"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -68,6 +70,7 @@
         android:layout_marginStart="172dp"
         android:layout_marginTop="312dp"
         android:ems="10"
+        android:hint="6~8個英文或數字"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -131,9 +134,10 @@
         android:id="@+id/RegisterBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="152dp"
         android:layout_marginTop="456dp"
-        android:text="按我註冊"
+        android:backgroundTint="#206CA5"
+        android:text="註冊"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -17,7 +17,7 @@ public class ConfirmActivity extends AppCompatActivity {
         binding = ActivityConfirmBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.btn4.setOnClickListener(new View.OnClickListener() {
+        binding.OKBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intentMaintain = new Intent(ConfirmActivity.this, SettlementActivity.class);

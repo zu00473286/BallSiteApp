@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
@@ -9,6 +10,11 @@
             android:icon="@drawable/baseline_home_24"
             android:title="主頁" />
         <item
+            android:id="@+id/nav_record"
+            android:icon="@drawable/baseline_insert_drive_file_24"
+            android:iconTint="#751E1E"
+            android:title="租借紀錄" />
+        <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/baseline_emoji_people_24"
             android:title="會員資料" />
@@ -16,5 +22,6 @@
             android:id="@+id/nav_gallery"
             android:icon="@drawable/baseline_question_answer_24"
             android:title="客服" />
+
     </group>
 </menu>
