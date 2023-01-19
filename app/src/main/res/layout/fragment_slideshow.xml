@@ -11,10 +11,20 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="62dp"
+        android:layout_marginTop="64dp"
         android:text="會員資料"
         android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/Pass"
+        android:layout_width="226dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="144dp"
+        android:textSize="22dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,56 +32,10 @@
         android:id="@+id/Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="152dp"
-        android:text="姓名"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/Pass"
-        android:layout_width="186dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="144dp"
-        android:text="123"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/txtPassword"
-        android:layout_width="188dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="308dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="123456" />
-
-    <EditText
-        android:id="@+id/textView15"
-        android:layout_width="183dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="188dp"
-        android:text="a123@gmail.com"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/textView17"
-        android:layout_width="188dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="252dp"
-        android:text="0932-123123"
-        android:textSize="18sp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="148dp"
+        android:text="姓名:"
+        android:textSize="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -79,21 +43,20 @@
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="204dp"
-        android:text="信箱"
-        android:textSize="18sp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="200dp"
+        android:text="Email:"
+        android:textSize="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="268dp"
-        android:text="電話"
-        android:textSize="18sp"
+    <EditText
+        android:id="@+id/textView17"
+        android:layout_width="225dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="252dp"
+        android:textSize="22dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -101,10 +64,43 @@
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="316dp"
-        android:text="密碼"
-        android:textSize="18sp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="312dp"
+        android:text="密碼:"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="252dp"
+        android:text="電話:"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtPassword"
+        android:layout_width="225dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="308dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:textSize="22dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/textView15"
+        android:layout_width="226dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="188dp"
+        android:textSize="22dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -112,8 +108,8 @@
         android:id="@+id/ReviceBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="164dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="376dp"
         android:backgroundTint="#206CA5"
         android:text="修改資料"
         app:layout_constraintStart_toStartOf="parent"
