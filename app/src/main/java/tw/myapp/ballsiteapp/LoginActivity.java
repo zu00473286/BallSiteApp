@@ -97,14 +97,13 @@ public class LoginActivity extends AppCompatActivity {
                 RequestBody body = RequestBody.create(packet.toString(), mType);
 
                 Request request = new Request.Builder()
-                        .url("http://192.168.255.58:8123/api/member/login")
+                        .url("http://192.168.255.14:8123/api/member/login")
                         .post(body)
                         .build();
 
                 //產生 Task 準備給 Executor 執行
                 SimpaleAPIWorker apiCaller = new SimpaleAPIWorker(request);
                 executor.execute(apiCaller);
-
             }
         });
         // 執行 Checkbox Remember 行為 (無需跟其他activities共享
