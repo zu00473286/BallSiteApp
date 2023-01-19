@@ -59,7 +59,6 @@ public class RegisterActivity extends AppCompatActivity {
         binding.RegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 JSONObject packet = new JSONObject();
                 try {
                     JSONObject data = new JSONObject();
@@ -78,7 +77,7 @@ public class RegisterActivity extends AppCompatActivity {
                 RequestBody body = RequestBody.create(packet.toString(), mType);
 
                 Request request = new Request.Builder()
-                        .url("http://192.168.255.58:8123/api/member/register")
+                        .url("http://192.168.255.14:8123/api/member/register")
                         .post(body)
                         .build();
                 RegisterActivity.SimpaleAPIWorker apiCaller = new RegisterActivity.SimpaleAPIWorker(request);

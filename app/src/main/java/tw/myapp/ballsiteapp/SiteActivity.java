@@ -16,12 +16,22 @@ public class SiteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivitySiteBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        binding.OkBtn.setOnClickListener(new View.OnClickListener() {
+        binding.imageBadminton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentMaintain = new Intent(SiteActivity.this, VenueRentalActivity.class);
-                startActivity(intentMaintain);
+
+            }
+        });
+        binding.imageTennis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        binding.imageTabelTennis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
     }
