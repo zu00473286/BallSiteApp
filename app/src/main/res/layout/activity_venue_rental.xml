@@ -45,19 +45,10 @@
         android:id="@+id/MixView"
         android:layout_width="370dp"
         android:layout_height="76dp"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="436dp"
         android:text="優惠訊息...等"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="453dp" />
-
-    <TextView
-        android:id="@+id/TotalView"
-        android:layout_width="106dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="260dp"
-        android:layout_marginTop="540dp"
-        android:text="應付款金額"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -70,7 +61,10 @@
         android:backgroundTint="#206CA5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="選擇日期" />
+        android:onClick="datePicker"
+        tools:text="選擇日期"/>
+
+
 
     <Button
         android:id="@+id/TimeSelectBtn"
