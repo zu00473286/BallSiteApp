@@ -11,9 +11,9 @@
         android:id="@+id/TotalView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="62dp"
         android:text="會員資料"
-        android:textSize="35dp"
+        android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,6 +27,7 @@
         android:layout_marginTop="136dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:text="Name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,7 +51,8 @@
         android:ems="10"
         android:inputType="textEmailAddress"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="email" />
 
     <EditText
         android:id="@+id/txtPass"
@@ -59,10 +61,10 @@
         android:layout_marginStart="168dp"
         android:layout_marginTop="360dp"
         android:ems="10"
-        android:hint="密碼不可更改"
         android:inputType="numberPassword"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="密碼不可更改" />
 
     <EditText
         android:id="@+id/txtTel"
@@ -73,7 +75,8 @@
         android:ems="10"
         android:inputType="phone"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="tel" />
 
     <TextView
         android:id="@+id/textView23"
@@ -139,6 +142,7 @@
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

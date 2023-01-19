@@ -21,14 +21,17 @@
             android:name=".CalendarActivity"
             android:exported="false" />
         <activity
+            android:name=".StoredValueActivity"
+            android:exported="false" />
+        <activity
             android:name=".MemberProfileActivity"
             android:exported="false" />
         <activity
             android:name=".RegisterActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".SettlementActivity"
             android:exported="false" />
