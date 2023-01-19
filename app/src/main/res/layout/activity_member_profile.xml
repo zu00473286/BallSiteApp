@@ -27,9 +27,9 @@
         android:layout_marginTop="136dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Name" />
 
     <TextView
         android:id="@+id/textView13"
@@ -126,7 +126,7 @@
         android:id="@+id/HomeBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="168dp"
+        android:layout_marginBottom="44dp"
         android:backgroundTint="#206CA5"
         android:text="返回主頁"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -142,7 +142,6 @@
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,7 +25,6 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#206CA5"
         app:popupTheme="@style/Theme.BallSiteApp.PopupOverlay" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

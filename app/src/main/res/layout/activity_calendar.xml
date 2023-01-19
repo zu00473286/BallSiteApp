@@ -23,7 +23,7 @@
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="232dp"
+        android:layout_marginBottom="136dp"
         android:backgroundTint="#206CA5"
         android:text="選擇這天"
         app:layout_constraintBottom_toBottomOf="parent"

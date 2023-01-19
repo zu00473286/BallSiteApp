@@ -44,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="160dp"
-        android:layout_marginTop="564dp"
+        android:layout_marginTop="536dp"
         android:backgroundTint="#206CA5"
         android:text="送出"
         app:layout_constraintStart_toStartOf="parent"
