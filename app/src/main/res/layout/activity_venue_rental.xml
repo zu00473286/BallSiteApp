@@ -44,13 +44,13 @@
     <TextView
         android:id="@+id/MixView"
         android:layout_width="370dp"
-        android:layout_height="76dp"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="436dp"
+        android:layout_marginBottom="219dp"
         android:text="優惠訊息...等"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <Button
@@ -61,9 +61,9 @@
         android:layout_marginTop="152dp"
         android:backgroundTint="#206CA5"
         android:onClick="datePicker"
+        android:text="選擇日期"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="選擇日期" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/TimeSelectBtn"
@@ -72,8 +72,8 @@
         android:layout_marginStart="68dp"
         android:layout_marginTop="288dp"
         android:backgroundTint="#206CA5"
+        android:text="選擇時間"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="選擇時間" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
