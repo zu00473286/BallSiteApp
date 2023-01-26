@@ -29,7 +29,6 @@ import tw.myapp.ballsiteapp.databinding.ActivityRegisterBinding;
 public class RegisterActivity extends AppCompatActivity {
 
     ActivityRegisterBinding binding;
-    SharedPreferences userData;
     ExecutorService executor;
     Handler RegisterHandler = new Handler(Looper.getMainLooper()) {
         public void handleMessage(@NonNull Message msg) {
@@ -77,7 +76,7 @@ public class RegisterActivity extends AppCompatActivity {
                 RequestBody body = RequestBody.create(packet.toString(), mType);
 
                 Request request = new Request.Builder()
-                        .url("http://192.168.255.14:8123/api/member/register")
+                        .url("http://192.168.0.15:8123/api/member/register")
                         .post(body)
                         .build();
                 RegisterActivity.SimpaleAPIWorker apiCaller = new RegisterActivity.SimpaleAPIWorker(request);

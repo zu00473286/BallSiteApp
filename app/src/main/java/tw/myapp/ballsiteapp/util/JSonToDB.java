@@ -23,13 +23,12 @@ public class JSonToDB {
                 JSONObject jsonObject = rawData.getJSONObject(i);
                 db.execSQL("insert into product values(?,?,?,?,?,?,?);",
                         new Object[]{
-                                jsonObject.getInt("p_id"),
-                                jsonObject.getInt("series"),
-                                jsonObject.getString("name"),
-                                jsonObject.getInt("tem"),
-                                jsonObject.getInt("calorie"),
-                                jsonObject.getInt("price"),
-                                jsonObject.getString("pic")
+                                jsonObject.getInt("member_id"),
+                                jsonObject.getInt("name"),
+                                jsonObject.getString("mobile"),
+                                jsonObject.getInt("email"),
+                                jsonObject.getInt("passwd"),
+                                jsonObject.getInt("money"),
                         });
                 //測試有沒有成功
                 Log.d("JSON", jsonObject.getString("name") + ":" + jsonObject.getInt("calorie"));

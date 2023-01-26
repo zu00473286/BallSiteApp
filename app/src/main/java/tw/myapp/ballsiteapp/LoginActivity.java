@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Toast;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.concurrent.ExecutorService;
@@ -33,77 +34,60 @@ public class LoginActivity extends AppCompatActivity {
     //執行緒負責進行網路通訊任務
     ExecutorService executor;
     // Handler 接收登入結果處理
-    Handler loginResultHandler = new Handler(Looper.getMainLooper()) {
-        @Override
-        public void handleMessage(@NonNull Message msg) {
-            super.handleMessage(msg);
-            Bundle bundle = msg.getData();
-            if( bundle.getInt("status")== 11) {
 
-                // 記錄使用者相關資訊 到 context SharedPreferences 分享給其他 Activities 查詢
-                SharedPreferences.Editor contextEditor = LoginActivity.this.getSharedPreferences("user_info",MODE_PRIVATE).edit();
-                contextEditor.putString("username",binding.txtUsername.getText().toString());
-                contextEditor.putBoolean("isLogin",true);
-                contextEditor.apply();
-                Toast.makeText(LoginActivity.this, "登入成功", Toast.LENGTH_SHORT).show();
-                Intent intentSite = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intentSite);
-            } else {
-                SharedPreferences.Editor contextEditor = LoginActivity.this.getSharedPreferences("user_info",MODE_PRIVATE).edit();
-                contextEditor.putString("username","");
-                contextEditor.putBoolean("isLogin",false);
-                contextEditor.apply();
-
-                // 確認清除
-                Toast.makeText(LoginActivity.this, bundle.getString("mesg"), Toast.LENGTH_LONG).show();
-            }
-
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        //
-        executor = Executors.newSingleThreadExecutor();
-        //
+
+        userData =getSharedPreferences("User",MODE_PRIVATE);
+        String account=userData.getString("account","null");
+        if(userData.getBoolean("check",false) && !account.equals(null)){
+            binding.ckRemember.setChecked(true);
+            binding.txtUsername.setText(account);
+        }
+        executor= Executors.newSingleThreadExecutor();
         binding.btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                Bundle datas = new Bundle();
                 startActivity(intent);
             }
         });
         binding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // 請將 使用者資料封裝成 JSON Format 後傳送給 Spring-Boot Controller 進行驗證
-                JSONObject packet = new JSONObject();
-                try {
-                    JSONObject data = new JSONObject();
-                    data.put("user", binding.txtUsername.getText().toString());
-                    data.put("pass", binding.pass1.getText().toString());
-                    packet.put("data", data);
+                String name = binding.txtUsername.getText().toString();
+                String pwd = binding.pass1.getText().toString();
+                //判斷欄位不可空白才送出登入資料
+                if (name != null && pwd != null && !name.isEmpty() && !pwd.isEmpty()) {
+                    JSONObject packet = new JSONObject();
+                    try {
+                        //把使用者資料 封裝成JSON格式 回傳給SpringBoot Controller進行驗證
+                        JSONObject memberLogData = new JSONObject();
+                        memberLogData.put("user", binding.txtUsername.getText().toString());
+                        memberLogData.put("pass", binding.pass1.getText().toString());
+                        packet.put("data", memberLogData);
+                        Log.e("JSON", packet.toString(4));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    MediaType mType = MediaType.parse("application/json");
+                    RequestBody body = RequestBody.create(packet.toString(), mType);
+                    Request request = new Request.Builder()
+                            .url("http://192.168.0.15:8123/api/member/login")
+                            .post(body)
+                            .build();
+                    SimpaleAPIWorker apiCaller = new SimpaleAPIWorker(request,loginResultHandler);
+                    //產生Task準備給executor執行
+                    executor.execute(apiCaller);
 
-
-                    Log.w("API格式", packet.toString(4));
-                }catch(Exception e) {
-                    Toast.makeText(LoginActivity.this, "資料格式異常,請重新輸入", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(LoginActivity.this, "欄位空白", Toast.LENGTH_SHORT).show();
                 }
-                // 使用網路通訊 Header + Body
-                MediaType mType = MediaType.parse("application/json");
-                RequestBody body = RequestBody.create(packet.toString(), mType);
-
-                Request request = new Request.Builder()
-                        .url("http://192.168.0.15:8123/api/member/login")
-                        .post(body)
-                        .build();
-
-                //產生 Task 準備給 Executor 執行
-                SimpaleAPIWorker apiCaller = new SimpaleAPIWorker(request);
-                executor.execute(apiCaller);
             }
         });
         // 執行 Checkbox Remember 行為 (無需跟其他activities共享
@@ -121,8 +105,6 @@ public class LoginActivity extends AppCompatActivity {
             binding.pass1.setText("");
             binding.ckRemember.setChecked(false);
         }
-
-        //
         binding.ckRemember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
@@ -143,11 +125,42 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    Handler loginResultHandler = new Handler(Looper.getMainLooper()) {
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            super.handleMessage(msg);
+            Bundle bundle = msg.getData();
+            if (bundle.getInt("status") == 11) {
+                Toast.makeText(LoginActivity.this, "登入成功", Toast.LENGTH_SHORT).show();
+                //接收後端回傳登入成功的訊息後 將Email存起來 供會員資料頁面使用
+                userData = getSharedPreferences("userData", MODE_PRIVATE);
+                SharedPreferences.Editor edit = userData.edit();
+                String savedEmail = userData.getString("email", "查無資料");
+                String loginEmail = binding.txtUsername.getText().toString();
+                //確認登入成功的帳號與儲存在手機內的會員為同一人 不同則移除儲存的會員資料
+                if (savedEmail.equals(loginEmail)) {
+                    edit.putString("email", loginEmail).commit();//存入登入帳號到memberDataPre檔案
+                } else {
+                    edit.remove("email");
+                    edit.remove("name");
+                    edit.remove("phone");
+                    edit.apply();
+                    edit.putString("email", loginEmail).commit();
+                }
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+            }else{
+                Toast.makeText(LoginActivity.this, bundle.getString("mesg"), Toast.LENGTH_LONG).show();
+            }
+
+        }
+    };
     class SimpaleAPIWorker implements  Runnable {
         OkHttpClient client;
         Request request ;
 
-        public SimpaleAPIWorker(Request request) {
+        public SimpaleAPIWorker(Request request, Handler loginResultHandler) {
             client = new OkHttpClient();
             this.request = request;
         }
@@ -177,3 +190,4 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 }
+

@@ -84,7 +84,7 @@
         android:layout_marginStart="240dp"
         android:layout_marginTop="348dp"
         android:backgroundTint="#206CA5"
-        android:text="忘記密碼"
+        android:text="註冊"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

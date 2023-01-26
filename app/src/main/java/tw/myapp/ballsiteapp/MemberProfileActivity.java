@@ -31,23 +31,14 @@ public class MemberProfileActivity extends AppCompatActivity {
     ExecutorService executorService;
 
     SharedPreferences sharedPreferences;
-    Handler memberChangeHandler=new Handler(Looper.getMainLooper()){
-        @Override
-        public void handleMessage(@NonNull Message msg) {
-            super.handleMessage(msg);
-            Bundle bundle=msg.getData();
-            if(bundle.getInt("status")==123){
-                Toast.makeText(MemberProfileActivity.this, bundle.getString("mesg"), Toast.LENGTH_LONG).show();
-            }
-        }
-    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMemberProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         executorService = Executors.newSingleThreadExecutor();
-        sharedPreferences = getSharedPreferences("memberDataPre", MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("userData", MODE_PRIVATE);
         binding.txtEm.setText(sharedPreferences.getString("email", "查無資料"));
         binding.txtName.setText(sharedPreferences.getString("name", "查無資料"));
         binding.txtTel.setText(sharedPreferences.getString("phone", "查無資料"));
@@ -69,8 +60,8 @@ public class MemberProfileActivity extends AppCompatActivity {
                     try {
                         JSONObject newMemberRegData = new JSONObject();
                         newMemberRegData.put("name", name);
-                        newMemberRegData.put("pwd", pwd);
-                        newMemberRegData.put("phone", phone);
+                        newMemberRegData.put("passwd", pwd);
+                        newMemberRegData.put("mobile", phone);
                         newMemberRegData.put("email", sharedPreferences.getString("email", "查無資料"));
                         newMemberRegData.put("money", money);
                         packet.put("NewMemberData", newMemberRegData);
@@ -78,7 +69,7 @@ public class MemberProfileActivity extends AppCompatActivity {
                         //把修改的會員姓名和電話寫入memberDataPre檔案
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("name", binding.txtName.getText().toString());
-                        editor.putString("phone", binding.txtTel.getText().toString());
+                        editor.putString("mobile", binding.txtTel.getText().toString());
                         editor.apply();
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -87,7 +78,7 @@ public class MemberProfileActivity extends AppCompatActivity {
                     MediaType mType = MediaType.parse("application/json");
                     RequestBody body = RequestBody.create(packet.toString(), mType);
                     Request request = new Request.Builder()
-                            .url("http://192.168.255.14:8123/api/member/memberAll")
+                            .url("http://192.168.0.15:8123/api/member/???")
                             .post(body)
                             .build();
                     Toast.makeText(MemberProfileActivity.this, "已送出修改的會員資料", Toast.LENGTH_LONG).show();
@@ -101,6 +92,18 @@ public class MemberProfileActivity extends AppCompatActivity {
             }
         });
     }
+    Handler memberChangeHandler=new Handler(Looper.getMainLooper()) {
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            super.handleMessage(msg);
+            Bundle bundle = msg.getData();
+
+            Toast.makeText(MemberProfileActivity.this, "修改成功", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MemberProfileActivity.this, MainActivity.class);
+            startActivity(intent);
+        }
+    };
+
 
     class SimpaleAPIWorker implements Runnable {
         OkHttpClient client;
