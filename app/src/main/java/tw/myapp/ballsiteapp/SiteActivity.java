@@ -19,19 +19,22 @@ public class SiteActivity extends AppCompatActivity {
         binding.imageBadminton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(SiteActivity.this, VenueRentalActivity.class);
+                startActivity(intent);
             }
         });
         binding.imageTennis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(SiteActivity.this, VenueRentalActivity.class);
+                startActivity(intent);
             }
         });
         binding.imageTabelTennis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(SiteActivity.this, VenueRentalActivity.class);
+                startActivity(intent);
             }
         });
     }

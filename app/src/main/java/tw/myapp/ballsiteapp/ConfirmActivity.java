@@ -24,5 +24,12 @@ public class ConfirmActivity extends AppCompatActivity {
                 startActivity(intentMaintain);
             }
         });
+        binding.BackBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ConfirmActivity.this, VenueRentalActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

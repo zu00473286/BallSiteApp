@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
                 try {
                     JSONObject data = new JSONObject();
                     data.put("user", binding.txtUsername.getText().toString());
-                    data.put("pass", binding.txtPassword.getText().toString());
+                    data.put("pass", binding.pass1.getText().toString());
                     packet.put("data", data);
 
 
@@ -97,7 +97,7 @@ public class LoginActivity extends AppCompatActivity {
                 RequestBody body = RequestBody.create(packet.toString(), mType);
 
                 Request request = new Request.Builder()
-                        .url("http://192.168.255.14:8123/api/member/login")
+                        .url("http://192.168.0.15:8123/api/member/login")
                         .post(body)
                         .build();
 
@@ -113,12 +113,12 @@ public class LoginActivity extends AppCompatActivity {
         if( isRemember ) {
             // 從 userData中取出資料 放入 user & passwd 中
             binding.txtUsername.setText(userData.getString("user",""));
-            binding.txtPassword.setText(userData.getString("pass",""));
+            binding.pass1.setText(userData.getString("pass",""));
             binding.ckRemember.setChecked(true);
         } else {
             // 直接清除 user & passwd 中
             binding.txtUsername.setText("");
-            binding.txtPassword.setText("");
+            binding.pass1.setText("");
             binding.ckRemember.setChecked(false);
         }
 
@@ -129,7 +129,7 @@ public class LoginActivity extends AppCompatActivity {
                 if( isChecked ) {
                     SharedPreferences.Editor editor = userData.edit();
                     editor.putString("user",binding.txtUsername.getText().toString());
-                    editor.putString("pass",binding.txtPassword.getText().toString());
+                    editor.putString("pass",binding.pass1.getText().toString());
                     editor.putBoolean("rememberMe", true);
                     editor.apply();
 

@@ -44,5 +44,12 @@ public class VenueRentalActivity extends AppCompatActivity {
                 startActivity(intentMaintain);
             }
         });
+        binding.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(VenueRentalActivity.this, SiteActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

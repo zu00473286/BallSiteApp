@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/Pass"
+        android:id="@+id/Name1"
         android:layout_width="186dp"
         android:layout_height="40dp"
         android:layout_marginStart="148dp"
@@ -41,7 +41,7 @@
         tools:text="123" />
 
     <EditText
-        android:id="@+id/txtPassword"
+        android:id="@+id/pass1"
         android:layout_width="188dp"
         android:layout_height="43dp"
         android:layout_marginStart="140dp"
@@ -54,7 +54,7 @@
         tools:text="123456" />
 
     <EditText
-        android:id="@+id/textView15"
+        android:id="@+id/email1"
         android:layout_width="183dp"
         android:layout_height="55dp"
         android:layout_marginStart="148dp"
@@ -65,7 +65,7 @@
         tools:text="a123@gmail.com" />
 
     <EditText
-        android:id="@+id/textView17"
+        android:id="@+id/tel1"
         android:layout_width="188dp"
         android:layout_height="40dp"
         android:layout_marginStart="144dp"
