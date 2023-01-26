@@ -85,10 +85,12 @@ public class SlideshowFragment extends Fragment {
             String nameData = memberDataSharePre.getString("name", "查無資料");
             String emailData = memberDataSharePre.getString("email", "查無資料");
             String phoneData = memberDataSharePre.getString("phone", "查無資料");
+            String noidData = memberDataSharePre.getString("member_id", "查無資料");
 
             binding.Name1.setText(nameData);
             binding.email1.setText(emailData);
             binding.tel1.setText(phoneData);
+            binding.txtid.setText(noidData);
             Log.e("JSON", "這裡是從SharePreferance取出的會員資料");
         }
         binding.ReviceBtn.setOnClickListener(new View.OnClickListener() {
@@ -108,14 +110,15 @@ public class SlideshowFragment extends Fragment {
             Bundle bundle=msg.getData();
             if(bundle.getInt("status")==123){
                 Toast.makeText(getActivity(), bundle.getString("mesg"), Toast.LENGTH_LONG).show();
-            }else if(bundle.getInt("status")==999) {
                 binding.Name1.setText(bundle.getString("name"));
                 binding.email1.setText(bundle.getString("email"));
                 binding.tel1.setText(bundle.getString("phone"));
+                binding.txtid.setText(bundle.getString("member_id"));
                 SharedPreferences.Editor editor=memberDataSharePre.edit();
                 editor.putString("name",binding.Name1.getText().toString());
                 editor.putString("email",binding.email1.getText().toString());
                 editor.putString("phone",binding.tel1.getText().toString());
+                editor.putString("member_id",binding.txtid.getText().toString());
                 editor.apply();
             }else{
                 Toast.makeText(getActivity(), bundle.getString("mesg"), Toast.LENGTH_LONG).show();
@@ -141,7 +144,7 @@ public class SlideshowFragment extends Fragment {
                 JSONObject result = new JSONObject(responseString);
                 Message m = memberDataHandler.obtainMessage();
                 Bundle bundle = new Bundle();
-                if( result.getInt("status")== 777) {
+                if( result.getInt("status")== 123) {
                     bundle.putString("mesg",result.getString("mesg"));
                     bundle.putInt("status",result.getInt("status"));
                 } else {

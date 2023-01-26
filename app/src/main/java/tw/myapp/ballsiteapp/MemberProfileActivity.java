@@ -56,10 +56,12 @@ public class MemberProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String name = binding.txtName.getText().toString();
                 String phone = binding.txtTel.getText().toString();
+                String money = binding.txtpn.getText().toString();
                 String pwd = binding.txtPass.getText().toString();
                 String pwd2 = binding.txtpassch.getText().toString();
                 Boolean isName = binding.txtName.getText().toString().isEmpty();
                 Boolean isPhone = binding.txtTel.getText().toString().isEmpty();
+                Boolean ispn = binding.txtpn.getText().toString().isEmpty();
                 Boolean isPwd = binding.txtPass.getText().toString().isEmpty();
                 Boolean isPwd2 = binding.txtpassch.getText().toString().isEmpty();
                 if (name != null && phone != null && !isName && !isPhone && (!pwd.isEmpty() && pwd != null && pwd.equals(pwd2))) {//pwd跟pwd2要一樣 就不用判斷pwd2是不是空白的了5
@@ -70,6 +72,7 @@ public class MemberProfileActivity extends AppCompatActivity {
                         newMemberRegData.put("pwd", pwd);
                         newMemberRegData.put("phone", phone);
                         newMemberRegData.put("email", sharedPreferences.getString("email", "查無資料"));
+                        newMemberRegData.put("money", money);
                         packet.put("NewMemberData", newMemberRegData);
                         Log.e("JSON", packet.toString(4));
                         //把修改的會員姓名和電話寫入memberDataPre檔案
