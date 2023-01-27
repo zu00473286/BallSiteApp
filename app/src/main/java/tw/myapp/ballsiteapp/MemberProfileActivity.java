@@ -41,30 +41,28 @@ public class MemberProfileActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("userData", MODE_PRIVATE);
         binding.txtEm.setText(sharedPreferences.getString("email", "查無資料"));
         binding.txtName.setText(sharedPreferences.getString("name", "查無資料"));
-        binding.txtTel.setText(sharedPreferences.getString("phone", "查無資料"));
+        binding.txtTel.setText(sharedPreferences.getString("mobile", "查無資料"));
+        binding.txtPass.setText(sharedPreferences.getString("passwd", "查無資料"));
         binding.btnCh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String name = binding.txtName.getText().toString();
-                String phone = binding.txtTel.getText().toString();
-                String money = binding.txtpn.getText().toString();
+                String tel = binding.txtTel.getText().toString();
                 String pwd = binding.txtPass.getText().toString();
                 String pwd2 = binding.txtpassch.getText().toString();
                 Boolean isName = binding.txtName.getText().toString().isEmpty();
                 Boolean isPhone = binding.txtTel.getText().toString().isEmpty();
-                Boolean ispn = binding.txtpn.getText().toString().isEmpty();
                 Boolean isPwd = binding.txtPass.getText().toString().isEmpty();
                 Boolean isPwd2 = binding.txtpassch.getText().toString().isEmpty();
-                if (name != null && phone != null && !isName && !isPhone && (!pwd.isEmpty() && pwd != null && pwd.equals(pwd2))) {//pwd跟pwd2要一樣 就不用判斷pwd2是不是空白的了5
+                if (name != null && tel != null && !isName && !isPhone && (!pwd.isEmpty() && pwd != null && pwd.equals(pwd2))) {//pwd跟pwd2要一樣 就不用判斷pwd2是不是空白的了5
                     JSONObject packet = new JSONObject();
                     try {
                         JSONObject newMemberRegData = new JSONObject();
                         newMemberRegData.put("name", name);
                         newMemberRegData.put("passwd", pwd);
-                        newMemberRegData.put("mobile", phone);
+                        newMemberRegData.put("mobile", tel);
                         newMemberRegData.put("email", sharedPreferences.getString("email", "查無資料"));
-                        newMemberRegData.put("money", money);
-                        packet.put("NewMemberData", newMemberRegData);
+                        packet.put("data", newMemberRegData);
                         Log.e("JSON", packet.toString(4));
                         //把修改的會員姓名和電話寫入memberDataPre檔案
                         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -124,13 +122,10 @@ public class MemberProfileActivity extends AppCompatActivity {
                 JSONObject result=new JSONObject(responseString);
                 Message m=memberChangeHandler.obtainMessage();
                 Bundle bundle=new Bundle();
-                if (result.getInt("status")==123){//確認修改會員資料狀態
+
                     bundle.putString("mesg",result.getString("mesg"));
                     bundle.putInt("status",result.getInt("status"));
-                } else {
-                    bundle.putString("mesg","系統錯誤，請洽程式開發人員");
-                    bundle.putInt("status",result.getInt("status"));
-                }
+
                 m.setData(bundle);
                 memberChangeHandler.sendMessage(m);
             } catch (Exception e) {

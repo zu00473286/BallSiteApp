@@ -58,6 +58,9 @@ public class RegisterActivity extends AppCompatActivity {
         binding.RegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String pwd = binding.PassText.getText().toString();
+                String pwd2 = binding.PassCheckText.getText().toString();
+                if(pwd.equals(pwd2)){
                 JSONObject packet = new JSONObject();
                 try {
                     JSONObject data = new JSONObject();
@@ -85,7 +88,9 @@ public class RegisterActivity extends AppCompatActivity {
 
                 Toast.makeText(RegisterActivity.this, "註冊成功", Toast.LENGTH_SHORT).show();
               //  Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-
+                } else {
+                    Toast.makeText(RegisterActivity.this, "請確認輸入相同密碼,且欄位不可空白", Toast.LENGTH_LONG).show();
+                }
             }
         });
 

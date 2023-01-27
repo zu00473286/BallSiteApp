@@ -6,24 +6,36 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.DialogPreference;
+import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Calendar;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import tw.myapp.ballsiteapp.databinding.ActivityVenueRentalBinding;
 
 public class VenueRentalActivity extends AppCompatActivity {
 
     ActivityVenueRentalBinding binding;
+
+    SharedPreferences userData;
+
+    ExecutorService executor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityVenueRentalBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        executor = Executors.newSingleThreadExecutor();
         binding.CalenderSelectBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,7 +56,12 @@ public class VenueRentalActivity extends AppCompatActivity {
         binding.TimeSelectBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String time = binding.TimeSelectBtn.getText().toString();
                 periodSelectAlterDialog();  // 點擊後執行副程式
+                userData = VenueRentalActivity.this.getSharedPreferences("userData", MODE_PRIVATE);
+                String membertime = userData.getString("time", "查無資料");
+                Log.e("JSON", "時間" + userData.getString("time", "查無資料"));
+
             }
         });
 
