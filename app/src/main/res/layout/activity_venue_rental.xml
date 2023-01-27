@@ -41,17 +41,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
         android:id="@+id/MixView"
         android:layout_width="370dp"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="219dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="156dp"
         android:text="優惠訊息...等"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 
     <Button
         android:id="@+id/CalenderSelectBtn"

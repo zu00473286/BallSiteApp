@@ -2,11 +2,15 @@ package tw.myapp.ballsiteapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.DialogPreference;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -37,6 +41,13 @@ public class VenueRentalActivity extends AppCompatActivity {
             }
         });
 
+        binding.TimeSelectBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                periodSelectAlterDialog();  // 點擊後執行副程式
+            }
+        });
+
         binding.OKBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,5 +62,26 @@ public class VenueRentalActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+
+    // 寫一個條列式選單給 TimeSelectBtn 使用
+    public void periodSelectAlterDialog() {
+        final String period[] = {
+                "10:00~11:00", "11:00~12:00",
+                "12:00~13:00", "13:00~14:00",
+                "14:00~15:00", "15:00~16:00",
+                "16:00~17:00", "17:00~18:00",
+                "18:00~19:00", "19:00~20:00",
+                "20:00~21:00", "21:00~22:00"}; //先建立個字串陣列
+        AlertDialog.Builder builder = new AlertDialog.Builder(VenueRentalActivity.this);
+        builder.setTitle("時間選項");
+        builder.setItems(period, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int i) {
+                binding.TimeSelectBtn.setText(period[i]);
+            }
+        });
+        builder.create().show();    //一定要創建並且展示才會成功
     }
 }

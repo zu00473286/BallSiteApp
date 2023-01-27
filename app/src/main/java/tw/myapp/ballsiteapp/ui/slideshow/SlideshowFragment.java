@@ -79,7 +79,7 @@ public class SlideshowFragment extends Fragment {
             MediaType mType = MediaType.parse("application/json");
             RequestBody body = RequestBody.create(packet.toString(), mType);
             Request request = new Request.Builder()
-                    .url("http://192.168.0.15:8123/api/member/memberAll")
+                    .url("http://192.168.253.30:8123/api/member/memberAll")
                     .post(body)
                     .build();
             SimpaleAPIWorker apiCaller = new SimpaleAPIWorker(request, memberDataHandler);
