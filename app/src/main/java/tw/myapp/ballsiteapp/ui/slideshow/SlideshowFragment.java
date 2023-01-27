@@ -2,6 +2,7 @@ package tw.myapp.ballsiteapp.ui.slideshow;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -132,7 +133,6 @@ public class SlideshowFragment extends Fragment {
                 editor.putString("passwd", binding.pass1.getText().toString());
                 editor.putString("money", binding.txtpn2.getText().toString());
                 editor.apply();
-
         }
     };
     class SimpaleAPIWorker implements  Runnable {
@@ -157,13 +157,12 @@ public class SlideshowFragment extends Fragment {
                 Message m = memberDataHandler.obtainMessage();
                 Bundle bundle = new Bundle();
 
-                    bundle.putString("member_id", result.getJSONObject("data").getString("member_id"));
-                    bundle.putString("name", result.getJSONObject("data").getString("name"));
-                    bundle.putString("email", result.getJSONObject("data").getString("email"));
-                    bundle.putString("mobile", result.getJSONObject("data").getString("mobile"));
-                    bundle.putString("passwd", result.getJSONObject("data").getString("passwd"));
-                    bundle.putString("money", result.getJSONObject("data").getString("money"));
-
+                    bundle.putString("member_id", result.getString("member_id"));
+                    bundle.putString("name", result.getString("name"));
+                    bundle.putString("mobile", result.getString("mobile"));
+                    bundle.putString("email", result.getString("email"));
+                    bundle.putString("passwd", result.getString("passwd"));
+                    bundle.putString("money", result.getString("money"));
 
                 m.setData(bundle);
                 memberDataHandler.sendMessage(m);
