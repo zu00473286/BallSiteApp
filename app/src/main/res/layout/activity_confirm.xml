@@ -44,7 +44,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView32"
+        android:id="@+id/txtName2"
         android:layout_width="195dp"
         android:layout_height="49dp"
         android:layout_marginTop="140dp"
@@ -68,7 +68,7 @@
         tools:text="200元" />
 
     <TextView
-        android:id="@+id/textView34"
+        android:id="@+id/txtymd"
         android:layout_width="195dp"
         android:layout_height="48dp"
         android:layout_marginTop="260dp"
@@ -104,7 +104,7 @@
         tools:text="2號羽球場" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/txtTime2"
         android:layout_width="199dp"
         android:layout_height="45dp"
         android:layout_marginTop="328dp"
@@ -176,7 +176,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView33"
+        android:id="@+id/txtTel2"
         android:layout_width="195dp"
         android:layout_height="48dp"
         android:layout_marginTop="200dp"

@@ -31,11 +31,9 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import tw.myapp.ballsiteapp.LoginActivity;
-import tw.myapp.ballsiteapp.MainActivity;
+
 import tw.myapp.ballsiteapp.MemberProfileActivity;
-import tw.myapp.ballsiteapp.R;
-import tw.myapp.ballsiteapp.RegisterActivity;
+
 import tw.myapp.ballsiteapp.databinding.FragmentSlideshowBinding;
 
 public class SlideshowFragment extends Fragment {
@@ -79,7 +77,7 @@ public class SlideshowFragment extends Fragment {
             MediaType mType = MediaType.parse("application/json");
             RequestBody body = RequestBody.create(packet.toString(), mType);
             Request request = new Request.Builder()
-                    .url("http://192.168.253.30:8123/api/member/memberAll")
+                    .url("http://192.168.0.15:8123/api/member/memberAll")
                     .post(body)
                     .build();
             SimpaleAPIWorker apiCaller = new SimpaleAPIWorker(request, memberDataHandler);

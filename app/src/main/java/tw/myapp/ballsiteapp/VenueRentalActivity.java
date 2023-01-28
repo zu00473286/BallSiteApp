@@ -29,16 +29,20 @@ public class VenueRentalActivity extends AppCompatActivity {
 
     SharedPreferences userData;
 
-    ExecutorService executor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityVenueRentalBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        executor = Executors.newSingleThreadExecutor();
+
+        userData =getSharedPreferences("userData",MODE_PRIVATE);
+
+
         binding.CalenderSelectBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 Calendar calendar = Calendar.getInstance(); //取得java內建的 日曆物件
                 int y = calendar.get(calendar.YEAR);
                 int m = calendar.get(calendar.MONTH);
@@ -47,6 +51,9 @@ public class VenueRentalActivity extends AppCompatActivity {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         binding.CalenderSelectBtn.setText("日期:" + year + "/" + (month+1)+ "/" + dayOfMonth );
+                        SharedPreferences.Editor editor = userData.edit();
+                        editor.putString("ymd",binding.CalenderSelectBtn.getText().toString());
+                        editor.apply();
                     }
                 }, y,m,d);
                 dialog.show();
@@ -56,11 +63,7 @@ public class VenueRentalActivity extends AppCompatActivity {
         binding.TimeSelectBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String time = binding.TimeSelectBtn.getText().toString();
                 periodSelectAlterDialog();  // 點擊後執行副程式
-                userData = VenueRentalActivity.this.getSharedPreferences("userData", MODE_PRIVATE);
-                String membertime = userData.getString("time", "查無資料");
-                Log.e("JSON", "時間" + userData.getString("time", "查無資料"));
 
             }
         });
@@ -93,10 +96,16 @@ public class VenueRentalActivity extends AppCompatActivity {
                 "20:00~21:00", "21:00~22:00"}; //先建立個字串陣列
         AlertDialog.Builder builder = new AlertDialog.Builder(VenueRentalActivity.this);
         builder.setTitle("時間選項");
+
+
         builder.setItems(period, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
                 binding.TimeSelectBtn.setText(period[i]);
+
+                SharedPreferences.Editor editor = userData.edit();
+                editor.putString("time",binding.TimeSelectBtn.getText().toString());
+                editor.apply();
             }
         });
         builder.create().show();    //一定要創建並且展示才會成功

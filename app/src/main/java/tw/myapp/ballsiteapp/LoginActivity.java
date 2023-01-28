@@ -43,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         userData =getSharedPreferences("User",MODE_PRIVATE);
+
         String account=userData.getString("account","null");
         if(userData.getBoolean("check",false) && !account.equals(null)){
             binding.ckRemember.setChecked(true);
