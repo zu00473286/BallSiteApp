@@ -10,4 +10,24 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="badminton_site1">一樓羽球場A</string>
+    <string name="badminton_site2">二樓羽球場A</string>
+    <string name="badminton_site3">三樓羽球場A</string>
+    <string name="badminton_site4">一樓羽球場B</string>
+    <string name="badminton_site5">二樓羽球場B</string>
+    <string name="badminton_site6">三樓羽球場B</string>
+    <string name="tennis_site1">一樓網球場A</string>
+    <string name="tennis_site2">二樓網球場A</string>
+    <string name="tennis_site3">三樓網球場A</string>
+    <string name="tennis_site4">一樓網球場B</string>
+    <string name="tennis_site5">二樓網球場B</string>
+    <string name="tennis_site6">三樓網球場B</string>
+    <string name="table_tennis_site1">一樓桌球場A</string>
+    <string name="table_tennis_site2">二樓桌球場A</string>
+    <string name="table_tennis_site3">三樓桌球場A</string>
+    <string name="table_tennis_site4">一樓桌球場B</string>
+    <string name="table_tennis_site5">二樓桌球場B</string>
+    <string name="table_tennis_site6">三樓桌球場B</string>
+
+
 </resources>
