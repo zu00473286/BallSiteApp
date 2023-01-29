@@ -8,23 +8,11 @@
     android:background="@drawable/sport1">
 
     <TextView
-        android:id="@+id/txtpn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="480dp"
-        android:layout_marginEnd="60dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="這裡顯示餘額" />
-
-    <TextView
         android:id="@+id/txtid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="148dp"
-        android:layout_marginEnd="92dp"
+        android:layout_width="201dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginEnd="36dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,33 +20,122 @@
         tools:text="這裡顯示編號" />
 
     <TextView
-        android:id="@+id/Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="212dp"
-        android:text="姓名"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/tel1"
-        android:layout_width="188dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="312dp"
+        android:layout_width="203dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="172dp"
+        android:layout_marginTop="332dp"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="這裡顯示電話" />
 
     <TextView
+        android:id="@+id/textView15"
+        android:layout_width="98dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="448dp"
+        android:text="餘額:"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="112dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="156dp"
+        android:text="會員編號:"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Title"
+        android:layout_width="95dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="216dp"
+        android:text="姓名:"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/email1"
+        android:layout_width="201dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="172dp"
+        android:layout_marginTop="276dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="這裡顯示信箱" />
+
+    <TextView
+        android:id="@+id/Name1"
+        android:layout_width="208dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="172dp"
+        android:layout_marginTop="216dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="這裡顯示名字" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="95dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="272dp"
+        android:text="信箱:"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtpn2"
+        android:layout_width="207dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="448dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="這裡顯示餘額" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="100dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="396dp"
+        android:text="密碼:"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="98dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="336dp"
+        android:text="電話:"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/pass1"
-        android:layout_width="188dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="368dp"
+        android:layout_width="208dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="172dp"
+        android:layout_marginTop="392dp"
         android:ems="10"
         android:inputType="textPassword"
         android:textSize="18sp"
@@ -67,90 +144,13 @@
         tools:text="這裡顯示密碼" />
 
     <TextView
-        android:id="@+id/textView17"
-        android:layout_width="138dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="136dp"
-        android:text="會員編號:"
-        android:textSize="25dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/email1"
-        android:layout_width="183dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="248dp"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="這裡顯示信箱" />
-
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="376dp"
-        android:text="密碼"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/Name1"
-        android:layout_width="186dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="204dp"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="這裡顯示名子" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="328dp"
-        android:text="電話"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="264dp"
-        android:text="信箱"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="98dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="468dp"
-        android:text="餘額:"
-        android:textSize="25dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="64dp"
         android:text="會員資料"
         android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -158,10 +158,10 @@
         android:id="@+id/ReviceBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="184dp"
-        android:layout_marginTop="592dp"
+        android:layout_marginTop="544dp"
         android:backgroundTint="#206CA5"
         android:text="修改資料"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
