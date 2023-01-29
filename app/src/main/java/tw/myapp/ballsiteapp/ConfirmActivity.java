@@ -21,15 +21,18 @@ public class ConfirmActivity extends AppCompatActivity {
 
         userData =getSharedPreferences("userData",MODE_PRIVATE);
 
-
         String name = userData.getString("name","");
         String tel = userData.getString("mobile","");
         String time = userData.getString("time","");
         String ymd = userData.getString("ymd","");
+
         binding.txtName2.setText(name);
         binding.txtTime2.setText(time);
         binding.txtTel2.setText(tel);
         binding.txtymd.setText(ymd);
+
+        String siteID = userData.getString("site_id","");
+        binding.textView35.setText(siteID);
 
 
 
