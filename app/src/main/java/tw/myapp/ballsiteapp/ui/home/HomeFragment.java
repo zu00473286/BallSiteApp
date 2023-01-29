@@ -74,7 +74,7 @@ public class HomeFragment extends Fragment {
 
         db.execSQL(createTable);
 
-        request=new Request.Builder().url("http://192.168.0.15:8123/???").build();
+        request=new Request.Builder().url("http://192.168.0.15:8123/api/site/SiteAll").build();
 
         executor= Executors.newSingleThreadExecutor();
         SimpleAPIWorker downLoadData=new SimpleAPIWorker(request,handler);
