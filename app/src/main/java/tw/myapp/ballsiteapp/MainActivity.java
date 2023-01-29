@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     ExecutorService executor;
 
     String createTable =
-            "create table if not exists Site(" +
+            "create table if not exists Sites(" +
                     "site_id text," +
                     "no_id text," +
                     "category_id text);";
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        db=openOrCreateDatabase("Site",MODE_PRIVATE,null);
+        db=openOrCreateDatabase("Sites",MODE_PRIVATE,null);
 
         db.execSQL(createTable);
 
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void checkA(){
 
-        db=openOrCreateDatabase("Site",MODE_PRIVATE,null);
+        db=openOrCreateDatabase("Sites",MODE_PRIVATE,null);
         db.execSQL(createTable);
         Cursor cursor=db.rawQuery("select * from Site",null);
         if(cursor==null || cursor.getCount()==0){
