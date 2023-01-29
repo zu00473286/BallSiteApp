@@ -35,18 +35,18 @@ public class ConfirmActivity extends AppCompatActivity {
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
             Bundle bundle = msg.getData();
-            if (bundle.getInt("status") == 000) {
+            if (bundle.getInt("status") == 11) {
 
                 // 記錄使用者相關資訊 到 context SharedPreferences 分享給其他 Activities 查詢
-                SharedPreferences.Editor contextEditor = RegisterActivity.this.getSharedPreferences("user_info", MODE_PRIVATE).edit();
-                contextEditor.putString("username", binding.NameText.getText().toString());
+                SharedPreferences.Editor contextEditor = ConfirmActivity.this.getSharedPreferences("user_info", MODE_PRIVATE).edit();
+                contextEditor.putString("siteID", binding.txtName2.getText().toString());
                 contextEditor.putBoolean("register", true);
                 contextEditor.apply();
-                Toast.makeText(RegisterActivity.this, "註冊成功", Toast.LENGTH_SHORT).show();
-                Intent intentToMeetingRoom = new Intent(RegisterActivity.this, MainActivity.class);
+                Toast.makeText(ConfirmActivity.this, "註冊成功", Toast.LENGTH_SHORT).show();
+                Intent intentToMeetingRoom = new Intent(ConfirmActivity.this, MainActivity.class);
                 startActivity(intentToMeetingRoom);
             } else {
-                Toast.makeText(RegisterActivity.this, "註冊失敗", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ConfirmActivity.this, "註冊失敗", Toast.LENGTH_SHORT).show();
             }
         }
     };
@@ -134,7 +134,7 @@ public class ConfirmActivity extends AppCompatActivity {
                 JSONObject result = new JSONObject(responseString);
                 Message m = RegisterHandler.obtainMessage();
                 Bundle bundle = new Bundle();
-                if( result.getInt("status")== 000) {
+                if( result.getInt("status")== 11) {
                     bundle.putString("mesg", result.getString("mesg"));
                     bundle.putInt("status",result.getInt("status") );
                 } else {
