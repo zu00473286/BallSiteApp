@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
         db=openOrCreateDatabase("Sites",MODE_PRIVATE,null);
         db.execSQL(createTable);
-        Cursor cursor=db.rawQuery("select * from Site",null);
+        Cursor cursor=db.rawQuery("select * from Sites",null);
         if(cursor==null || cursor.getCount()==0){
             Log.d("網路","沒有資料");
         }
