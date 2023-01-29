@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
@@ -14,19 +15,20 @@
             android:layout_height="176dp"
             android:padding="16dp">
 
+
             <ImageView
                 android:id="@+id/site_icon"
                 android:layout_width="147dp"
                 android:layout_height="147dp"
                 android:layout_alignParentLeft="false"
-                android:layout_marginRight="16dp" />
-
+                android:layout_marginRight="16dp"
+                tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
                 android:id="@+id/site_name"
                 android:layout_width="173dp"
                 android:layout_height="173dp"
-                android:layout_marginLeft="39dp"
+                android:layout_marginLeft="57dp"
                 android:layout_toRightOf="@+id/site_icon"
                 android:textSize="30sp" />
         </RelativeLayout>
