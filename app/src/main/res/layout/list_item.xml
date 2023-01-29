@@ -25,10 +25,34 @@
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
-                android:id="@+id/site_name"
-                android:layout_width="173dp"
-                android:layout_height="173dp"
+                android:id="@+id/sitename_id"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="57dp"
+                android:layout_toRightOf="@+id/site_icon"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/site_name"
+                android:layout_width="103dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="105dp"
+                android:layout_toRightOf="@+id/site_icon"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/siteprice_id"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="45dp"
+                android:layout_toRightOf="@+id/site_icon"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/site_price"
+                android:layout_width="77dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="129dp"
                 android:layout_toRightOf="@+id/site_icon"
                 android:textSize="30sp" />
         </RelativeLayout>
