@@ -12,6 +12,7 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -24,10 +25,17 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 import tw.myapp.ballsiteapp.databinding.ActivityMainBinding;
 import tw.myapp.ballsiteapp.util.JSonToDB2;
 import tw.myapp.ballsiteapp.util.SimpleAPIWorker;
@@ -54,15 +62,12 @@ public class MainActivity extends AppCompatActivity {
             super.handleMessage(msg);
             String jsonString;
             Bundle bundle = msg.getData();
-            int status = bundle.getInt("status");
-            if(status==200){
+
                 db.execSQL(createTable);
-                jsonString=bundle.getString("data");
+                jsonString=bundle.getString("userData");
                 JSonToDB2 j2db = new JSonToDB2(db);
                 j2db.writeToDatabase(jsonString);
-            }else{
-                Log.d("網路",bundle.getString("data"));
-            }
+
         }
     };
 
@@ -75,11 +80,23 @@ public class MainActivity extends AppCompatActivity {
         db=openOrCreateDatabase("Sites",MODE_PRIVATE,null);
 
         db.execSQL(createTable);
-
-        request=new Request.Builder().url("http://192.168.0.15:8123/api/site/SiteAll").build();
+        JSONObject packet = new JSONObject();
+        try {
+            JSONObject data = new JSONObject();
+            packet.put("data", data);
+            Log.e("JSON", "這裡是從網路下載的會員資料");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        MediaType mType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(packet.toString(), mType);
+        Request request = new Request.Builder()
+                .url("http://192.168.0.15:8123/api/site/SiteAll")
+                .post(body)
+                .build();
 
         executor= Executors.newSingleThreadExecutor();
-        SimpleAPIWorker downLoadData=new SimpleAPIWorker(request,handler);
+        SimpaleAPIWorker downLoadData=new SimpaleAPIWorker(request,handler);
         executor.execute(downLoadData);
 
         checkA();
@@ -109,9 +126,41 @@ public class MainActivity extends AppCompatActivity {
 
         db=openOrCreateDatabase("Sites",MODE_PRIVATE,null);
         db.execSQL(createTable);
-        Cursor cursor=db.rawQuery("select * from Sites",null);
-        if(cursor==null || cursor.getCount()==0){
-            Log.d("網路","沒有資料");
+
+
+    }
+    class SimpaleAPIWorker implements  Runnable {
+        OkHttpClient client;
+        Request request;
+
+        public SimpaleAPIWorker(Request request, Handler handler) {
+            client = new OkHttpClient();
+            this.request = request;
+        }
+
+
+        @Override
+        public void run() {
+
+            try {
+                Response response = client.newCall(request).execute();
+                String responseString = response.body().string();
+                Log.w("api回應", responseString);
+
+
+                JSONObject result = new JSONObject(responseString);
+                Message m = handler.obtainMessage();
+                Bundle bundle = new Bundle();
+
+                bundle.putString("site_id", result.getString("site_id"));
+                bundle.putString("no_id", result.getString("no_id"));
+                bundle.putString("category_id", result.getString("category_id"));
+
+                m.setData(bundle);
+                handler.sendMessage(m);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
     }
