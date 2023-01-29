@@ -8,6 +8,12 @@ public class SiteModel {
 
     private String price;
 
+    public SiteModel(int image, String siteID, String price) {
+        this.image = image;
+        this.siteID = siteID;
+        this.price = price;
+    }
+
     public int getImage() {
         return image;
     }
