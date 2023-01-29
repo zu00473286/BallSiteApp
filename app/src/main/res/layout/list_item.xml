@@ -41,7 +41,6 @@
                 android:layout_marginLeft="123dp"
                 android:layout_toEndOf="@+id/sitename_id"
                 android:layout_toRightOf="@+id/site_icon"
-                android:layout_toRightRightOf="@+id/sitename_id"
                 android:textSize="20dp" />
 
             <TextView
@@ -63,7 +62,6 @@
                 android:layout_marginLeft="129dp"
                 android:layout_marginTop="34dp"
                 android:layout_toEndOf="@+id/siteprice_id"
-                android:layout_toRightRightOf="@+id/siteprice_id"
                 android:textSize="20dp" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
