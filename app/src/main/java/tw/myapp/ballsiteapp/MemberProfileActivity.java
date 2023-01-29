@@ -89,6 +89,13 @@ public class MemberProfileActivity extends AppCompatActivity {
                 }
             }
         });
+        binding.HomeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MemberProfileActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
     Handler memberChangeHandler=new Handler(Looper.getMainLooper()) {
         @Override
