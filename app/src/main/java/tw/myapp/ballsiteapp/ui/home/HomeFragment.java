@@ -35,32 +35,7 @@ public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
 
-    SharedPreferences activityPreference;
-    Request request;
-    SQLiteDatabase db;
-    ExecutorService executor;
 
-    final static String createTable =
-            "create table if not exists sites(" +
-                    "site_id text," +
-                    "no_id text," +
-                    "category_id text);";
-
-    Handler handler = new Handler(Looper.getMainLooper()){
-        @Override
-        public void handleMessage(@NonNull Message msg) {
-            super.handleMessage(msg);
-            String jsonString;
-            Bundle bundle = msg.getData();
-
-                db.execSQL("drop table if exists sites;");
-                db.execSQL(createTable);
-                jsonString=bundle.getString("data");
-                JSonToDB2 j2db = new JSonToDB2(db);
-                j2db.writeToDatabase(jsonString);
-
-        }
-    };
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -70,17 +45,7 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        db=openOrCreateDatabase("sites",null);
 
-        db.execSQL(createTable);
-
-        request=new Request.Builder().url("http://192.168.253.30:8123/api/site/SiteAll").build();
-
-        executor= Executors.newSingleThreadExecutor();
-        SimpleAPIWorker downLoadData=new SimpleAPIWorker(request,handler);
-        executor.execute(downLoadData);
-
-        checkA();
 
         binding.GoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,14 +59,7 @@ public class HomeFragment extends Fragment {
         //homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
-    public void checkA(){
-        db=openOrCreateDatabase("Sites",null);
-        db.execSQL(createTable);
-        Cursor cursor=db.rawQuery("select * from product",null);
-        if(cursor==null || cursor.getCount()==0){
-            Log.d("網路","沒有資料");
-        }
-    }
+
 
     @Override
     public void onDestroyView() {

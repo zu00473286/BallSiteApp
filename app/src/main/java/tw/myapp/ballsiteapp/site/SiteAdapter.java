@@ -43,6 +43,7 @@ public class SiteAdapter extends RecyclerView.Adapter<SiteAdapter.ViewHolder> {
             } while (cursor.moveToNext());
         }
         cursor.close();
+
     }
 
     public void setSites(String sites) {

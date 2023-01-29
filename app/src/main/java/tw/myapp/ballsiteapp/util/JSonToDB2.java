@@ -28,7 +28,7 @@ public class JSonToDB2 {
                                 jsonObject.getString("category_id")
                         });
                 //測試有沒有成功
-                Log.d("JSON", jsonObject.getString("name") + ":" + jsonObject.getInt("calorie"));
+                Log.d("JSON", jsonObject.getString("site_id") + ":" + jsonObject.getInt("category_id"));
 
             }
         } catch (JSONException e) {
