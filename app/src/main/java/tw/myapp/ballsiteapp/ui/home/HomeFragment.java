@@ -1,24 +1,43 @@
 package tw.myapp.ballsiteapp.ui.home;
 
+
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import tw.myapp.ballsiteapp.LoginActivity;
-import tw.myapp.ballsiteapp.RegisterActivity;
+import java.util.Date;
+import java.util.concurrent.ExecutorService;
+
+
 import tw.myapp.ballsiteapp.SiteActivity;
 import tw.myapp.ballsiteapp.databinding.FragmentHomeBinding;
+import tw.myapp.ballsiteapp.util.JSonToDB2;
 
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
+
+    SharedPreferences activityPreference;
+    SQLiteDatabase db;
+    ExecutorService executor;
+
+    final static String createTable =
+            "create table if not exists sites(" +
+                    "site_id text," +
+                    "no_id text," +
+                    "category_id text);";
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
