@@ -70,11 +70,11 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        db=openOrCreateDatabase("site",null);
+        db=openOrCreateDatabase("sites",null);
 
         db.execSQL(createTable);
 
-        request=new Request.Builder().url("http://192.168.0.15:8123/api/site/SiteAll").build();
+        request=new Request.Builder().url("http://192.168.253.30:8123/api/site/SiteAll").build();
 
         executor= Executors.newSingleThreadExecutor();
         SimpleAPIWorker downLoadData=new SimpleAPIWorker(request,handler);
