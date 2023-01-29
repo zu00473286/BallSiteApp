@@ -2,9 +2,12 @@ package tw.myapp.ballsiteapp.site;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,6 +25,7 @@ public class SiteAdapter extends RecyclerView.Adapter<SiteAdapter.ViewHolder> {
     private SiteItemClickListener listener;
 
     private ArrayList<SiteModel> siteAll;
+
 
     public SiteAdapter(SQLiteDatabase db, SiteItemClickListener listener, ArrayList<SiteModel> siteAll) {
         this.db = db;
@@ -88,7 +92,20 @@ public class SiteAdapter extends RecyclerView.Adapter<SiteAdapter.ViewHolder> {
     // 將上面產生好的 UI 綁定資料 (由 RecyclerView 呼叫 開發者無法察覺)
     @Override
     public void onBindViewHolder(@NonNull SiteAdapter.ViewHolder holder, int position) {
+        holder.imageView.setImageResource(siteAll.get(position).getImage());
+        holder.txtSiteID.setText( siteAll.get(position).getSiteID() );
+        holder.txtPrice.setText( siteAll.get(position).getPrice() + "元");
+        holder.txtSiteID.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final int pos = holder.getAdapterPosition(); // 正確做法
+                String siteID = siteAll.get(pos).getSiteID();
+                String price = siteAll.get(pos).getPrice();
+                // 將事件控制權交回給 RestaurantListActivity 負責 不應在此處處理(可以這樣 但觀念錯)
+                listener.onClick( pos, siteID, price );
 
+            }
+        });
     }
 
     // 資料數量
@@ -98,9 +115,14 @@ public class SiteAdapter extends RecyclerView.Adapter<SiteAdapter.ViewHolder> {
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-
+        ImageView imageView;
+        TextView txtSiteID;
+        TextView txtPrice;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            this.imageView = itemView.findViewById(R.id.site_icon);
+            this.txtSiteID = itemView.findViewById(R.id.site_name);
+            this.txtPrice = itemView.findViewById(R.id.site_price);
         }
     }
 }

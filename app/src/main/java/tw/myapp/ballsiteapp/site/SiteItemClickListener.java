@@ -1,5 +1,5 @@
 package tw.myapp.ballsiteapp.site;
 
 public interface SiteItemClickListener {
-    void onClick(int position, String siteID);
+    void onClick(int position, String siteID, String price);
 }
