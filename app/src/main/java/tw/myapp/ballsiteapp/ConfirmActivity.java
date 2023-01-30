@@ -96,7 +96,7 @@ public class ConfirmActivity extends AppCompatActivity {
                 RequestBody body = RequestBody.create(packet.toString(), mType);
 
                 Request request = new Request.Builder()
-                        .url("http://192.168.255.58:8123/api/site/rentSite")
+                        .url("http://192.168.255.56:8123/api/site/rentSite")
                         .post(body)
                         .build();
                 ConfirmActivity.SimpaleAPIWorker apiCaller = new ConfirmActivity.SimpaleAPIWorker(request);

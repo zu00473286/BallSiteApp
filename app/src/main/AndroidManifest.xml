@@ -16,6 +16,9 @@
         android:theme="@style/Theme.BallSiteApp"
         tools:targetApi="31">
         <activity
+            android:name=".SiteListActivity"
+            android:exported="false" />
+        <activity
             android:name=".SiteNumberActivity"
             android:exported="false" />
         <activity

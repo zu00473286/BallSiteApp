@@ -79,7 +79,7 @@ public class RegisterActivity extends AppCompatActivity {
                 RequestBody body = RequestBody.create(packet.toString(), mType);
 
                 Request request = new Request.Builder()
-                        .url("http://192.168.255.58:8123/api/member/register")
+                        .url("http://192.168.255.56:8123/api/member/register")
                         .post(body)
                         .build();
                 RegisterActivity.SimpaleAPIWorker apiCaller = new RegisterActivity.SimpaleAPIWorker(request);

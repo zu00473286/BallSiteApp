@@ -2,25 +2,15 @@ package tw.myapp.ballsiteapp.model;
 
 public class SiteModel {
 
-    private int image;
-
     private String siteID;
 
     private String price;
 
-    public SiteModel(int image, String siteID, String price) {
-        this.image = image;
+    public SiteModel(String siteID, String price) {
         this.siteID = siteID;
         this.price = price;
     }
 
-    public int getImage() {
-        return image;
-    }
-
-    public void setImage(int image) {
-        this.image = image;
-    }
 
     public String getSiteID() {
         return siteID;

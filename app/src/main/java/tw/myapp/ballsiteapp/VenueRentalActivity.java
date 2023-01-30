@@ -71,7 +71,7 @@ public class VenueRentalActivity extends AppCompatActivity {
         binding.OKBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentMaintain = new Intent(VenueRentalActivity.this, ConfirmActivity.class);
+                Intent intentMaintain = new Intent(VenueRentalActivity.this, SiteListActivity.class);
                 startActivity(intentMaintain);
             }
         });

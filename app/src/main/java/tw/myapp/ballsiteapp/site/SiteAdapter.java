@@ -1,8 +1,12 @@
 package tw.myapp.ballsiteapp.site;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.media.Image;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,12 +14,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ComponentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import tw.myapp.ballsiteapp.R;
+import tw.myapp.ballsiteapp.SiteListActivity;
 import tw.myapp.ballsiteapp.model.SiteModel;
 
 public class SiteAdapter extends RecyclerView.Adapter<SiteAdapter.ViewHolder> {
@@ -26,28 +31,39 @@ public class SiteAdapter extends RecyclerView.Adapter<SiteAdapter.ViewHolder> {
 
     private ArrayList<SiteModel> siteAll;
 
+    SharedPreferences userData;
 
-    public SiteAdapter(SQLiteDatabase db, SiteItemClickListener listener, ArrayList<SiteModel> siteAll) {
+    public SiteAdapter(SQLiteDatabase db, SiteItemClickListener listener, SharedPreferences userdata) {
+        this.userData = userdata;
         this.db = db;
         this.listener = listener;
-        this.siteAll = siteAll;
-    }
+        this.siteAll = new ArrayList<>();
 
-    public void getAllSiteData() {
-        Cursor cursor = db.rawQuery("SELECT * FROM site;", null);
+        Cursor cursor = null;
+        String category = userData.getString("category","");
+        switch (category) {
+            case "1":
+                cursor = db.rawQuery("SELECT * FROM Sites WHERE category_id=1;", null);
+                break;
+            case "2":
+                cursor = db.rawQuery("SELECT * FROM Sites WHERE category_id=2;", null);
+                break;
+            case "3":
+                cursor = db.rawQuery("SELECT * FROM Sites WHERE category_id=3;", null);
+                break;
+        }
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
             do {
                 SiteModel siteModel = new SiteModel(
-                        cursor.getInt(1),
-                        cursor.getString(2),
-                        cursor.getString(3)
+                        cursor.getString(1),
+                        cursor.getString(2)
                 );
                 siteAll.add(siteModel);
             } while (cursor.moveToNext());
         }
         cursor.close();
-
+        db.close();
     }
 
     public void setSites(String sites) {
@@ -55,28 +71,35 @@ public class SiteAdapter extends RecyclerView.Adapter<SiteAdapter.ViewHolder> {
         Cursor cursor = null;
         switch (sites) {
             case "all":
-                cursor = db.rawQuery("SELECT * FROM site;", null);
+                cursor = db.rawQuery("SELECT * FROM Sites;", null);
+                Log.e("sitesize","有");
                 break;
             case "羽球場":
-                cursor = db.rawQuery("SELECT * FROM site WHERE category_id=1;", null);
+                cursor = db.rawQuery("SELECT * FROM Sites WHERE category_id=1;", null);
+                Log.e("sitesize","有1");
                 break;
             case "排球場":
-                cursor = db.rawQuery("SELECT * FROM site WHERE category_id=2;", null);
+                cursor = db.rawQuery("SELECT * FROM Sites WHERE category_id=2;", null);
+                Log.e("sitesize","有2");
                 break;
             case "桌球場":
-                cursor = db.rawQuery("SELECT * FROM site WHERE category_id=3;", null);
+                cursor = db.rawQuery("SELECT * FROM Sites WHERE category_id=3;", null);
+                Log.e("sitesize","有3");
                 break;
         }
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
             do {
                 SiteModel siteModel = new SiteModel(
-                        cursor.getInt(1),
-                        cursor.getString(2),
-                        cursor.getString(3)
+                        cursor.getString(1),
+                        cursor.getString(2)
                 );
                 siteAll.add(siteModel);
             } while (cursor.moveToNext());
+            this.notifyDataSetChanged();
+        } else {
+            //無資料
+            siteAll.clear();
         }
         cursor.close();
     }
@@ -92,7 +115,19 @@ public class SiteAdapter extends RecyclerView.Adapter<SiteAdapter.ViewHolder> {
     // 將上面產生好的 UI 綁定資料 (由 RecyclerView 呼叫 開發者無法察覺)
     @Override
     public void onBindViewHolder(@NonNull SiteAdapter.ViewHolder holder, int position) {
-        holder.imageView.setImageResource(siteAll.get(position).getImage());
+        String category = userData.getString("category","");
+        switch (category) {
+            case "1":
+                holder.imageView.setImageResource(R.drawable.a1);
+                break;
+            case "2":
+                holder.imageView.setImageResource(R.drawable.a2);
+                break;
+            case "3":
+                holder.imageView.setImageResource(R.drawable.a3);
+                break;
+        }
+
         holder.txtSiteID.setText( siteAll.get(position).getSiteID() );
         holder.txtPrice.setText( siteAll.get(position).getPrice() + "元");
         holder.txtSiteID.setOnClickListener(new View.OnClickListener() {

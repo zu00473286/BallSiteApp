@@ -25,7 +25,7 @@ public class JSonToDB2 {
                         new Object[]{
                                 jsonObject.getString("site_id"),
                                 jsonObject.getString("no_id"),
-                                jsonObject.getString("category_id")
+                                jsonObject.getString("category_id"),
                         });
                 //測試有沒有成功
                 Log.d("JSON", jsonObject.getString("site_id") + ":" + jsonObject.getString("category_id"));
