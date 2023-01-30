@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -129,6 +130,14 @@ public class SiteAdapter extends RecyclerView.Adapter<SiteAdapter.ViewHolder> {
         }
 
         holder.txtSiteID.setText( siteAll.get(position).getSiteID() );
+        holder.txtSiteID.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = userData.edit();
+                editor.putString("site_id",holder.txtSiteID.toString());
+                editor.apply();
+            }
+        });
         holder.txtPrice.setText( siteAll.get(position).getPrice() + "元");
         holder.txtSiteID.setOnClickListener(new View.OnClickListener() {
             @Override

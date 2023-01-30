@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SiteActivity"
-    android:background="@drawable/sport1">
+    android:background="@drawable/sport1"
+    tools:context=".SiteActivity">
 
     <TextView
         android:id="@+id/textView5"
