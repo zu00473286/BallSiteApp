@@ -17,6 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -57,7 +58,6 @@ public class ConfirmActivity extends AppCompatActivity {
 
 
 
-
         binding.OKBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,6 +76,8 @@ public class ConfirmActivity extends AppCompatActivity {
                 // 使用網路通訊 Header + Body
                 MediaType mType = MediaType.parse("application/json");
                 RequestBody body = RequestBody.create(packet.toString(), mType);
+
+                executor= Executors.newSingleThreadExecutor();
 
                 Request request = new Request.Builder()
                         .url("http://192.168.0.15:8123/api/site/rentSite")
@@ -134,17 +136,17 @@ public class ConfirmActivity extends AppCompatActivity {
                 Response response = client.newCall(request).execute();
                 String responseString = response.body().string();
                 Log.w("api回應", responseString);
-                // Response 也應該是 JSON格式回傳後 由 app端進行分析 確認登入結果
+
                 JSONObject result = new JSONObject(responseString);
                 Message m = Handler.obtainMessage();
                 Bundle bundle = new Bundle();
-
-
-                bundle.putString("name", result.getString("name"));
-                bundle.putString("mobile", result.getString("mobile"));
-                bundle.putString("time", result.getString("time"));
-                bundle.putString("ymd", result.getString("ymd"));
-                bundle.putString("site_id", result.getString("site_id"));
+                if( result.getInt("status")== 11) {
+                    bundle.putString("mesg", result.getString("mesg"));
+                    bundle.putInt("status",result.getInt("status") );
+                } else {
+                    bundle.putString("mesg", "登入失敗,請確認有無帳號,或密碼是否有誤");
+                    bundle.putInt("status",result.getInt("status") );
+                }
 
                 m.setData(bundle);
                 Handler.sendMessage(m);
