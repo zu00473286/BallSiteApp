@@ -104,7 +104,7 @@ public class VenueRentalActivity extends AppCompatActivity {
                 binding.TimeSelectBtn.setText(period[i]);
 
                 SharedPreferences.Editor editor = userData.edit();
-                editor.putString("time", binding.TimeSelectBtn.getText().toString());
+                editor.putString("time", period[i]);
                 editor.apply();
             }
         });

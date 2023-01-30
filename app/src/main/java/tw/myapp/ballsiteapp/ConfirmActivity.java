@@ -31,25 +31,7 @@ public class ConfirmActivity extends AppCompatActivity {
     ExecutorService executor;
     SharedPreferences userData;
 
-    Handler RegisterHandler = new Handler(Looper.getMainLooper()) {
-        public void handleMessage(@NonNull Message msg) {
-            super.handleMessage(msg);
-            Bundle bundle = msg.getData();
-            if (bundle.getInt("status") == 11) {
 
-                // 記錄使用者相關資訊 到 context SharedPreferences 分享給其他 Activities 查詢
-                SharedPreferences.Editor contextEditor = ConfirmActivity.this.getSharedPreferences("user_info", MODE_PRIVATE).edit();
-                contextEditor.putString("siteID", binding.txtName2.getText().toString());
-                contextEditor.putBoolean("register", true);
-                contextEditor.apply();
-                Toast.makeText(ConfirmActivity.this, "註冊成功", Toast.LENGTH_SHORT).show();
-                Intent intentToMeetingRoom = new Intent(ConfirmActivity.this, MainActivity.class);
-                startActivity(intentToMeetingRoom);
-            } else {
-                Toast.makeText(ConfirmActivity.this, "註冊失敗", Toast.LENGTH_SHORT).show();
-            }
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,14 +45,15 @@ public class ConfirmActivity extends AppCompatActivity {
         String tel = userData.getString("mobile","");
         String time = userData.getString("time","");
         String ymd = userData.getString("ymd","");
+        String siteID = userData.getString("siteID","");
 
         binding.txtName2.setText(name);
         binding.txtTime2.setText(time);
         binding.txtTel2.setText(tel);
         binding.txtymd.setText(ymd);
-
-        String siteID = userData.getString("site_id","");
         binding.textView35.setText(siteID);
+
+
 
 
 
@@ -81,25 +64,24 @@ public class ConfirmActivity extends AppCompatActivity {
                 JSONObject packet = new JSONObject();
                 try {
                     JSONObject data = new JSONObject();
-                    data.put("member_id",userData.getString("member_id","").toString());
-                    data.put("site_id",binding.textView35.getText().toString());
-                    data.put("day",binding.txtymd.getText().toString());
-                    data.put("period_id",binding.txtTime2.getText().toString());
-                    packet.put("date", data);
+                    data.put("member_id",userData.getString("member_id",""));
+                    data.put("siteID",binding.textView35.getText().toString());
+                    data.put("ymd",binding.txtymd.getText().toString());
+                    data.put("time",binding.txtTime2.getText().toString());
+                    packet.put("data", data);
                     Log.w("API格式", packet.toString(5));
                 } catch (JSONException e) {
                     Toast.makeText(ConfirmActivity.this, "資料格式異常,請重新輸入", Toast.LENGTH_SHORT).show();
-                    return;
                 }
                 // 使用網路通訊 Header + Body
                 MediaType mType = MediaType.parse("application/json");
                 RequestBody body = RequestBody.create(packet.toString(), mType);
 
                 Request request = new Request.Builder()
-                        .url("http://192.168.255.56:8123/api/site/rentSite")
+                        .url("http://192.168.0.15:8123/api/site/rentSite")
                         .post(body)
                         .build();
-                ConfirmActivity.SimpaleAPIWorker apiCaller = new ConfirmActivity.SimpaleAPIWorker(request);
+                SimpaleAPIWorker apiCaller = new SimpaleAPIWorker(request);
                 executor.execute(apiCaller);
 
                 Intent intentMaintain = new Intent(ConfirmActivity.this, SettlementActivity.class);
@@ -114,6 +96,28 @@ public class ConfirmActivity extends AppCompatActivity {
             }
         });
     }
+    Handler Handler =new Handler(Looper.getMainLooper()) {
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            super.handleMessage(msg);
+            Bundle bundle = msg.getData();
+
+
+            binding.txtName2.setText(bundle.getString("name"));
+            binding.txtTel2.setText(bundle.getString("mobile"));
+            binding.txtTime2.setText(bundle.getString("time"));
+            binding.txtymd.setText(bundle.getString("ymd"));
+            binding.textView35.setText(bundle.getString("siteID"));
+
+            SharedPreferences.Editor editor = userData.edit();
+            editor.putString("name", binding.txtName2.getText().toString());
+            editor.putString("mobile", binding.txtTel2.getText().toString());
+            editor.putString("time", binding.txtTime2.getText().toString());
+            editor.putString("ymd", binding.txtymd.getText().toString());
+            editor.putString("siteID",binding.textView35.getText().toString());
+            editor.apply();
+        }
+    };
 
     public class SimpaleAPIWorker implements Runnable {
         OkHttpClient client;
@@ -132,17 +136,18 @@ public class ConfirmActivity extends AppCompatActivity {
                 Log.w("api回應", responseString);
                 // Response 也應該是 JSON格式回傳後 由 app端進行分析 確認登入結果
                 JSONObject result = new JSONObject(responseString);
-                Message m = RegisterHandler.obtainMessage();
+                Message m = Handler.obtainMessage();
                 Bundle bundle = new Bundle();
-                if( result.getInt("status")== 11) {
-                    bundle.putString("mesg", result.getString("mesg"));
-                    bundle.putInt("status",result.getInt("status") );
-                } else {
-                    bundle.putString("mesg", "登入失敗,請確認有無帳號,或密碼是否有誤");
-                    bundle.putInt("status",result.getInt("status") );
-                }
+
+
+                bundle.putString("name", result.getString("name"));
+                bundle.putString("mobile", result.getString("mobile"));
+                bundle.putString("time", result.getString("time"));
+                bundle.putString("ymd", result.getString("ymd"));
+                bundle.putString("site_id", result.getString("site_id"));
+
                 m.setData(bundle);
-                RegisterHandler.sendMessage(m);
+                Handler.sendMessage(m);
             } catch (Exception e) {
                 e.printStackTrace();
             }

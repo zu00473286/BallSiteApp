@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ComponentActivity;
@@ -33,6 +34,7 @@ public class SiteAdapter extends RecyclerView.Adapter<SiteAdapter.ViewHolder> {
     private ArrayList<SiteModel> siteAll;
 
     SharedPreferences userData;
+
 
     public SiteAdapter(SQLiteDatabase db, SiteItemClickListener listener, SharedPreferences userdata) {
         this.userData = userdata;
@@ -130,14 +132,7 @@ public class SiteAdapter extends RecyclerView.Adapter<SiteAdapter.ViewHolder> {
         }
 
         holder.txtSiteID.setText( siteAll.get(position).getSiteID() );
-        holder.txtSiteID.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SharedPreferences.Editor editor = userData.edit();
-                editor.putString("site_id",holder.txtSiteID.toString());
-                editor.apply();
-            }
-        });
+
         holder.txtPrice.setText( siteAll.get(position).getPrice() + "元");
         holder.txtSiteID.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,6 +142,10 @@ public class SiteAdapter extends RecyclerView.Adapter<SiteAdapter.ViewHolder> {
                 String price = siteAll.get(pos).getPrice();
                 // 將事件控制權交回給 RestaurantListActivity 負責 不應在此處處理(可以這樣 但觀念錯)
                 listener.onClick( pos, siteID, price );
+
+                SharedPreferences.Editor editor = userData.edit();
+                editor.putString("siteID",siteID);
+                editor.apply();
 
             }
         });
