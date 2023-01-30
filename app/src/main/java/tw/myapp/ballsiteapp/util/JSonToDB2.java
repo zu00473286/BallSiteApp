@@ -18,10 +18,10 @@ public class JSonToDB2 {
     public void writeToDatabase(String jsonString) {
         this.jsonString = jsonString;
         try {
-            JSONArray rawData = new JSONArray(jsonString);
-            for (int i = 0; i < rawData.length(); i++) {
-                JSONObject jsonObject = rawData.getJSONObject(i);
-                db.execSQL("insert into product values(?,?,?);",
+            JSONArray data = new JSONArray(jsonString);
+            for (int i = 0; i < data.length(); i++) {
+                JSONObject jsonObject = data.getJSONObject(i);
+                db.execSQL("insert into Sites values(?,?,?);",
                         new Object[]{
                                 jsonObject.getString("site_id"),
                                 jsonObject.getString("no_id"),

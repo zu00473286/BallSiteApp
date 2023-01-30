@@ -37,6 +37,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import tw.myapp.ballsiteapp.databinding.ActivityMainBinding;
+import tw.myapp.ballsiteapp.util.JSonToDB;
 import tw.myapp.ballsiteapp.util.JSonToDB2;
 import tw.myapp.ballsiteapp.util.SimpleAPIWorker;
 
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             Bundle bundle = msg.getData();
 
                 db.execSQL(createTable);
-                jsonString=bundle.getString("userData");
+                jsonString=bundle.getString("data");
                 JSonToDB2 j2db = new JSonToDB2(db);
                 j2db.writeToDatabase(jsonString);
 
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             JSONObject data = new JSONObject();
             packet.put("data", data);
-            Log.e("JSON", "這裡是從網路下載的會員資料");
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -96,10 +97,10 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         executor= Executors.newSingleThreadExecutor();
-        SimpaleAPIWorker downLoadData=new SimpaleAPIWorker(request,handler);
+        SimpleAPIWorker downLoadData=new SimpleAPIWorker(request,handler);
         executor.execute(downLoadData);
 
-        checkA();
+        //checkA();
 
 
         setSupportActionBar(binding.appBarMain.toolbar);
@@ -129,41 +130,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    class SimpaleAPIWorker implements  Runnable {
-        OkHttpClient client;
-        Request request;
-
-        public SimpaleAPIWorker(Request request, Handler handler) {
-            client = new OkHttpClient();
-            this.request = request;
-        }
 
 
-        @Override
-        public void run() {
-
-            try {
-                Response response = client.newCall(request).execute();
-                String responseString = response.body().string();
-                Log.w("api回應", responseString);
-
-
-                JSONObject result = new JSONObject(responseString);
-                Message m = handler.obtainMessage();
-                Bundle bundle = new Bundle();
-
-                bundle.putString("site_id", result.getString("site_id"));
-                bundle.putString("no_id", result.getString("no_id"));
-                bundle.putString("category_id", result.getString("category_id"));
-
-                m.setData(bundle);
-                handler.sendMessage(m);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
