@@ -27,7 +27,8 @@
         android:layout_marginTop="176dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/iconbadminton" />
+        app:srcCompat="@drawable/iconbadminton"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
         android:id="@+id/imageTabelTennis"
@@ -37,7 +38,8 @@
         android:layout_marginTop="464dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/iconpingpong" />
+        app:srcCompat="@drawable/iconpingpong"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/TableTennisText"
@@ -89,6 +91,7 @@
         android:layout_marginTop="316dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icontennis" />
+        app:srcCompat="@drawable/icontennis"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
