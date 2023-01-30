@@ -76,7 +76,7 @@ public class MemberProfileActivity extends AppCompatActivity {
                     MediaType mType = MediaType.parse("application/json");
                     RequestBody body = RequestBody.create(packet.toString(), mType);
                     Request request = new Request.Builder()
-                            .url("http://192.168.253.30:8123/api/member/memberAll")
+                            .url("http://192.168.255.58:8123/api/member/memberAll")
                             .post(body)
                             .build();
                     Toast.makeText(MemberProfileActivity.this, "已送出修改的會員資料", Toast.LENGTH_LONG).show();
