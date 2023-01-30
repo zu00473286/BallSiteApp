@@ -11,11 +11,11 @@
         android:id="@+id/GymNameView"
         android:layout_width="284sp"
         android:layout_height="50sp"
-        android:layout_marginStart="60sp"
         android:layout_marginTop="64sp"
         android:text="巨匠體育館租借GO"
         android:textAlignment="center"
         android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,9 +23,9 @@
         android:id="@+id/imageGym"
         android:layout_width="323sp"
         android:layout_height="345sp"
-        android:layout_marginStart="44sp"
         android:layout_marginTop="156sp"
         android:src="@drawable/sports"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

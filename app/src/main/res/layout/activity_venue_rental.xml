@@ -46,22 +46,22 @@
         android:id="@+id/MixView"
         android:layout_width="370sp"
         android:layout_height="0sp"
-        android:layout_marginStart="20sp"
-        android:layout_marginBottom="156sp"
+        android:layout_marginBottom="264dp"
         android:text="優惠訊息...等"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/CalenderSelectBtn"
         android:layout_width="275sp"
         android:layout_height="93sp"
-        android:layout_marginStart="68sp"
         android:layout_marginTop="152sp"
         android:backgroundTint="#206CA5"
         android:onClick="datePicker"
         android:text="選擇日期"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -69,10 +69,10 @@
         android:id="@+id/TimeSelectBtn"
         android:layout_width="275sp"
         android:layout_height="93sp"
-        android:layout_marginStart="68sp"
         android:layout_marginTop="288sp"
         android:backgroundTint="#206CA5"
         android:text="選擇時間"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -63,8 +63,8 @@
 
     <TextView
         android:id="@+id/textView25"
-        android:layout_width="106sp"
-        android:layout_height="43sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="40sp"
         android:layout_marginTop="416sp"
         android:text="密碼:"
@@ -86,8 +86,8 @@
 
     <TextView
         android:id="@+id/textView24"
-        android:layout_width="103sp"
-        android:layout_height="37sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="40sp"
         android:layout_marginTop="344sp"
         android:text="信箱:"
@@ -106,8 +106,8 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="108sp"
-        android:layout_height="42sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="40sp"
         android:layout_marginTop="120sp"
         android:text="會員編號:"
@@ -117,8 +117,8 @@
 
     <TextView
         android:id="@+id/textView46"
-        android:layout_width="102sp"
-        android:layout_height="45sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="37sp"
         android:layout_marginTop="68sp"
         android:layout_marginEnd="26sp"
@@ -152,8 +152,8 @@
 
     <TextView
         android:id="@+id/textView10"
-        android:layout_width="107sp"
-        android:layout_height="39sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="40sp"
         android:layout_marginTop="268sp"
         android:text="電話:"
@@ -163,8 +163,8 @@
 
     <TextView
         android:id="@+id/textView13"
-        android:layout_width="103sp"
-        android:layout_height="38sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="40sp"
         android:layout_marginTop="192sp"
         android:text="姓名:"
@@ -185,8 +185,8 @@
 
     <TextView
         android:id="@+id/textView32"
-        android:layout_width="100sp"
-        android:layout_height="40sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="36sp"
         android:layout_marginBottom="132sp"
         android:text="餘額:"

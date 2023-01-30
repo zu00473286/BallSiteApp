@@ -44,8 +44,8 @@
 
     <TextView
         android:id="@+id/textView19"
-        android:layout_width="79sp"
-        android:layout_height="27sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="56sp"
         android:layout_marginTop="208sp"
         android:text="E-Mail:"
@@ -67,8 +67,8 @@
 
     <TextView
         android:id="@+id/textView22"
-        android:layout_width="118sp"
-        android:layout_height="42sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="56sp"
         android:layout_marginTop="356sp"
         android:text="確認密碼:"
@@ -78,8 +78,8 @@
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="77sp"
-        android:layout_height="36sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="56sp"
         android:layout_marginTop="160sp"
         android:text="姓名:"
@@ -89,8 +89,8 @@
 
     <TextView
         android:id="@+id/textView20"
-        android:layout_width="78sp"
-        android:layout_height="38sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="56sp"
         android:layout_marginTop="252sp"
         android:text="電話:"
@@ -111,8 +111,8 @@
 
     <TextView
         android:id="@+id/textView21"
-        android:layout_width="78sp"
-        android:layout_height="35sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="56sp"
         android:layout_marginTop="304sp"
         android:text="密碼:"

@@ -9,8 +9,8 @@
 
     <TextView
         android:id="@+id/TitleView"
-        android:layout_width="282sp"
-        android:layout_height="51sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="136sp"
         android:layout_marginTop="64sp"
         android:layout_marginEnd="135sp"
@@ -23,8 +23,8 @@
 
     <Button
         android:id="@+id/OKBtn"
-        android:layout_width="146sp"
-        android:layout_height="50sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="540sp"
         android:layout_marginEnd="60sp"
         android:backgroundTint="#206CA5"
@@ -81,8 +81,8 @@
 
     <TextView
         android:id="@+id/textView37"
-        android:layout_width="74sp"
-        android:layout_height="51sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="80sp"
         android:layout_marginTop="324sp"
         android:text="@string/textView37"
@@ -117,8 +117,8 @@
 
     <TextView
         android:id="@+id/PlaceView"
-        android:layout_width="70sp"
-        android:layout_height="46sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="80sp"
         android:layout_marginTop="384sp"
         android:text="@string/PlaceView"
@@ -141,8 +141,8 @@
 
     <TextView
         android:id="@+id/TimeView"
-        android:layout_width="76sp"
-        android:layout_height="55sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="80sp"
         android:layout_marginTop="260sp"
         android:text="@string/TimeView"

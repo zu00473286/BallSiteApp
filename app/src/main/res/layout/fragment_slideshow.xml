@@ -32,8 +32,8 @@
 
     <TextView
         android:id="@+id/textView15"
-        android:layout_width="98sp"
-        android:layout_height="49sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="56sp"
         android:layout_marginTop="448sp"
         android:text="餘額:"
@@ -43,8 +43,8 @@
 
     <TextView
         android:id="@+id/textView17"
-        android:layout_width="112sp"
-        android:layout_height="48sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="56sp"
         android:layout_marginTop="156sp"
         android:text="會員編號:"
@@ -54,8 +54,8 @@
 
     <TextView
         android:id="@+id/Title"
-        android:layout_width="95sp"
-        android:layout_height="46sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="56sp"
         android:layout_marginTop="216sp"
         android:text="姓名:"
@@ -87,8 +87,8 @@
 
     <TextView
         android:id="@+id/textView14"
-        android:layout_width="95sp"
-        android:layout_height="52sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="56sp"
         android:layout_marginTop="272sp"
         android:text="信箱:"
@@ -110,8 +110,8 @@
 
     <TextView
         android:id="@+id/textView18"
-        android:layout_width="100sp"
-        android:layout_height="46sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="56sp"
         android:layout_marginTop="396sp"
         android:text="密碼:"
@@ -121,8 +121,8 @@
 
     <TextView
         android:id="@+id/textView16"
-        android:layout_width="98sp"
-        android:layout_height="46sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="56sp"
         android:layout_marginTop="336sp"
         android:text="電話:"

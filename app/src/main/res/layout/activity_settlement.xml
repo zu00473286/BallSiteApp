@@ -45,8 +45,8 @@
 
     <TextView
         android:id="@+id/timeView"
-        android:layout_width="75sp"
-        android:layout_height="37sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="68sp"
         android:layout_marginTop="268sp"
         android:text="日期:"
@@ -81,8 +81,8 @@
 
     <TextView
         android:id="@+id/textView26"
-        android:layout_width="66sp"
-        android:layout_height="45sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="68sp"
         android:layout_marginTop="336sp"
         android:text="時段:"
@@ -93,8 +93,8 @@
 
     <TextView
         android:id="@+id/placeView"
-        android:layout_width="70sp"
-        android:layout_height="46sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="68sp"
         android:layout_marginTop="392sp"
         android:text="場地:"
@@ -117,8 +117,8 @@
 
     <TextView
         android:id="@+id/textView31"
-        android:layout_width="99sp"
-        android:layout_height="47sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="68sp"
         android:layout_marginTop="456sp"
         android:text="付款狀態:"
