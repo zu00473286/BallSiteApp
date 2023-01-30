@@ -27,7 +27,7 @@
         android:layout_marginTop="176dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/badminton" />
+        app:srcCompat="@drawable/iconbadminton" />
 
     <ImageButton
         android:id="@+id/imageTabelTennis"
@@ -37,7 +37,7 @@
         android:layout_marginTop="464dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/tabletennis" />
+        app:srcCompat="@drawable/iconpingpong" />
 
     <TextView
         android:id="@+id/TableTennisText"
@@ -89,6 +89,6 @@
         android:layout_marginTop="316dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/valleyball" />
+        app:srcCompat="@drawable/icontennis" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
