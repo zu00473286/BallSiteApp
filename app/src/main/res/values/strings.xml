@@ -10,6 +10,13 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="TitleView">確認本次租借資料</string>
+    <string name="NameView">姓名:</string>
+    <string name="PhonewView">電話:</string>
+    <string name="TimeView">日期:</string>
+    <string name="textView37">時段:</string>
+    <string name="PlaceView">場地:</string>
+    <string name="TotalView">金額:</string>
     <string name="badminton_site1">一樓羽球場A</string>
     <string name="badminton_site2">二樓羽球場A</string>
     <string name="badminton_site3">三樓羽球場A</string>
