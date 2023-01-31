@@ -11,12 +11,15 @@ import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -35,6 +38,7 @@ import okhttp3.Response;
 
 import tw.myapp.ballsiteapp.MemberProfileActivity;
 
+import tw.myapp.ballsiteapp.R;
 import tw.myapp.ballsiteapp.databinding.AppBarMainBinding;
 import tw.myapp.ballsiteapp.databinding.FragmentSlideshowBinding;
 
@@ -46,6 +50,7 @@ public class SlideshowFragment extends Fragment {
 
     ExecutorService executor;
 
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         SlideshowViewModel slideshowViewModel =
@@ -53,9 +58,6 @@ public class SlideshowFragment extends Fragment {
 
         binding = FragmentSlideshowBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-
-
 
         executor = Executors.newSingleThreadExecutor();
 
@@ -165,4 +167,5 @@ public class SlideshowFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
 }

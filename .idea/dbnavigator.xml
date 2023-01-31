@@ -34,6 +34,9 @@
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="716768b4-3ced-4c12-bdb8-1da22959ada4" dataset="main.Sites" active-filter-id="" />
   </component>
+  <component name="DBNavigator.Project.ExecutionManager">
+    <retain-sticky-names value="false" />
+  </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
     <filters />

@@ -120,13 +120,7 @@ public class ConfirmActivity extends AppCompatActivity {
 
             Toast.makeText(ConfirmActivity.this, "租借成功", Toast.LENGTH_SHORT).show();
 
-            SharedPreferences.Editor editor = userData.edit();
-            editor.putString("name", binding.txtName2.getText().toString());
-            editor.putString("mobile", binding.txtTel2.getText().toString());
-            editor.putString("time", binding.txtTime2.getText().toString());
-            editor.putString("ymd", binding.txtymd.getText().toString());
-            editor.putString("siteID",binding.textView35.getText().toString());
-            editor.apply();
+
             Intent intentMaintain = new Intent(ConfirmActivity.this, SettlementActivity.class);
             startActivity(intentMaintain);
 
