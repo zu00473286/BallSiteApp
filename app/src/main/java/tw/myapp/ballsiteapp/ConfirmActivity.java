@@ -47,9 +47,10 @@ public class ConfirmActivity extends AppCompatActivity {
         String name = userData.getString("name","");
         String tel = userData.getString("mobile","");
         String time = userData.getString("time","");
-        int pos = userData.getInt("period_id",0);
+        int pos = userData.getInt("period_id",-1);
         String ymd = userData.getString("ymd","");
         String siteID = userData.getString("siteID","");
+        String site_id = userData.getString("site_id","");
 
         binding.txtName2.setText(name);
         binding.txtTime2.setText(time);
@@ -65,13 +66,13 @@ public class ConfirmActivity extends AppCompatActivity {
                 JSONObject packet = new JSONObject();
                 try {
                     JSONObject data = new JSONObject();
-                    Cursor cursor;
-                    String noID = binding.textView35.getText().toString();
-                    cursor = db.rawQuery("SELECT site_id FROM Sites WHERE no_id=" + noID, null);
-                    data.put("site_id",cursor);
+                    //Cursor cursor;
+                    //String noID = binding.textView35.getText().toString();
+                    //cursor = db.rawQuery("SELECT site_id FROM Sites WHERE no_id=" + noID, null);
+                    data.put("site_id",Integer.parseInt(site_id));
 
 
-                    data.put("member_id",Integer.valueOf(userData.getString("member_id","")));
+                    data.put("member_id",Integer.parseInt(userData.getString("member_id","")));
                     data.put("day",binding.txtymd.getText().toString());
                     data.put("period_id",pos);
                     packet.put("data", data);

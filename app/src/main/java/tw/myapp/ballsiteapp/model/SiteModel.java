@@ -6,11 +6,13 @@ public class SiteModel {
 
     private String price;
 
-    public SiteModel(String siteID, String price) {
+    private String site_id;
+
+    public SiteModel(String siteID, String price, String site_id) {
         this.siteID = siteID;
         this.price = price;
+        this.site_id = site_id;
     }
-
 
     public String getSiteID() {
         return siteID;
@@ -27,4 +29,13 @@ public class SiteModel {
     public void setPrice(String price) {
         this.price = price;
     }
+
+    public String getSite_id() {
+        return site_id;
+    }
+
+    public void setSite_id(String site_id) {
+        this.site_id = site_id;
+    }
+
 }

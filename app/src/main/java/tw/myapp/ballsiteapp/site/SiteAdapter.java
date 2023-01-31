@@ -60,7 +60,8 @@ public class SiteAdapter extends RecyclerView.Adapter<SiteAdapter.ViewHolder> {
             do {
                 SiteModel siteModel = new SiteModel(
                         cursor.getString(1),
-                        cursor.getString(2)
+                        cursor.getString(2),
+                        cursor.getString(0)
                 );
                 siteAll.add(siteModel);
             } while (cursor.moveToNext());
@@ -95,7 +96,8 @@ public class SiteAdapter extends RecyclerView.Adapter<SiteAdapter.ViewHolder> {
             do {
                 SiteModel siteModel = new SiteModel(
                         cursor.getString(1),
-                        cursor.getString(2)
+                        cursor.getString(2),
+                        cursor.getString(0)
                 );
                 siteAll.add(siteModel);
             } while (cursor.moveToNext());
@@ -140,11 +142,13 @@ public class SiteAdapter extends RecyclerView.Adapter<SiteAdapter.ViewHolder> {
                 final int pos = holder.getAdapterPosition(); // 正確做法
                 String siteID = siteAll.get(pos).getSiteID();
                 String price = siteAll.get(pos).getPrice();
+                String site_id = siteAll.get(pos).getSite_id();
                 // 將事件控制權交回給 RestaurantListActivity 負責 不應在此處處理(可以這樣 但觀念錯)
                 listener.onClick( pos, siteID, price );
 
                 SharedPreferences.Editor editor = userData.edit();
                 editor.putString("siteID",siteID);
+                editor.putString("site_id",site_id);
                 editor.apply();
 
             }
