@@ -93,8 +93,7 @@ public class ConfirmActivity extends AppCompatActivity {
                 SimpaleAPIWorker apiCaller = new SimpaleAPIWorker(request);
                 executor.execute(apiCaller);
 
-                Intent intentMaintain = new Intent(ConfirmActivity.this, SettlementActivity.class);
-                startActivity(intentMaintain);
+
             }
         });
         binding.BackBtn.setOnClickListener(new View.OnClickListener() {
@@ -111,12 +110,14 @@ public class ConfirmActivity extends AppCompatActivity {
             super.handleMessage(msg);
             Bundle bundle = msg.getData();
 
-
+            if (bundle.getInt("status") == 11) {
             binding.txtName2.setText(bundle.getString("name"));
             binding.txtTel2.setText(bundle.getString("mobile"));
             binding.txtTime2.setText(bundle.getString("time"));
             binding.txtymd.setText(bundle.getString("ymd"));
             binding.textView35.setText(bundle.getString("siteID"));
+
+            Toast.makeText(ConfirmActivity.this, "租借成功", Toast.LENGTH_SHORT).show();
 
             SharedPreferences.Editor editor = userData.edit();
             editor.putString("name", binding.txtName2.getText().toString());
@@ -125,6 +126,13 @@ public class ConfirmActivity extends AppCompatActivity {
             editor.putString("ymd", binding.txtymd.getText().toString());
             editor.putString("siteID",binding.textView35.getText().toString());
             editor.apply();
+            Intent intentMaintain = new Intent(ConfirmActivity.this, SettlementActivity.class);
+            startActivity(intentMaintain);
+
+            } else {
+                Toast.makeText(ConfirmActivity.this, "租借失敗", Toast.LENGTH_SHORT).show();
+
+            }
         }
     };
 
@@ -148,11 +156,14 @@ public class ConfirmActivity extends AppCompatActivity {
                 Message m = Handler.obtainMessage();
                 Bundle bundle = new Bundle();
                 if( result.getInt("status")== 11) {
+
                     bundle.putString("mesg", result.getString("mesg"));
                     bundle.putInt("status",result.getInt("status") );
                 } else {
+
                     bundle.putString("mesg", "登入失敗,請確認有無帳號,或密碼是否有誤");
                     bundle.putInt("status",result.getInt("status") );
+
                 }
 
                 m.setData(bundle);
