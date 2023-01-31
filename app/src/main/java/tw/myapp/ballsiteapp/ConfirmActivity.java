@@ -88,7 +88,7 @@ public class ConfirmActivity extends AppCompatActivity {
                 executor= Executors.newSingleThreadExecutor();
 
                 Request request = new Request.Builder()
-                        .url("http://192.168.255.56:8123/api/site/rentSite")
+                        .url("http://20.2.70.0:8123/api/site/rentSite")
                         .post(body)
                         .build();
                 SimpaleAPIWorker apiCaller = new SimpaleAPIWorker(request);
