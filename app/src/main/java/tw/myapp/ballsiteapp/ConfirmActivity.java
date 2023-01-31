@@ -51,13 +51,14 @@ public class ConfirmActivity extends AppCompatActivity {
         String ymd = userData.getString("ymd","");
         String siteID = userData.getString("siteID","");
         String site_id = userData.getString("site_id","");
+        String price = userData.getString("price", "");
 
         binding.txtName2.setText(name);
         binding.txtTime2.setText(time);
         binding.txtTel2.setText(tel);
         binding.txtymd.setText(ymd);
         binding.textView35.setText(siteID);
-
+        binding.textView36.setText(price);
 
 
         binding.OKBtn.setOnClickListener(new View.OnClickListener() {

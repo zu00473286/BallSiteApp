@@ -60,7 +60,7 @@ public class SiteAdapter extends RecyclerView.Adapter<SiteAdapter.ViewHolder> {
             do {
                 SiteModel siteModel = new SiteModel(
                         cursor.getString(1),
-                        cursor.getString(2),
+//                        cursor.getString(2),
                         cursor.getString(0)
                 );
                 siteAll.add(siteModel);
@@ -96,7 +96,7 @@ public class SiteAdapter extends RecyclerView.Adapter<SiteAdapter.ViewHolder> {
             do {
                 SiteModel siteModel = new SiteModel(
                         cursor.getString(1),
-                        cursor.getString(2),
+//                        cursor.getString(2),
                         cursor.getString(0)
                 );
                 siteAll.add(siteModel);
@@ -124,31 +124,35 @@ public class SiteAdapter extends RecyclerView.Adapter<SiteAdapter.ViewHolder> {
         switch (category) {
             case "1":
                 holder.imageView.setImageResource(R.drawable.a1);
+                holder.txtPrice.setText("45元");
                 break;
             case "2":
                 holder.imageView.setImageResource(R.drawable.a2);
+                holder.txtPrice.setText("70元");
                 break;
             case "3":
                 holder.imageView.setImageResource(R.drawable.a3);
+                holder.txtPrice.setText("35元");
                 break;
         }
 
         holder.txtSiteID.setText( siteAll.get(position).getSiteID() );
 
-        holder.txtPrice.setText( siteAll.get(position).getPrice() + "元");
+//        holder.txtPrice.setText( siteAll.get(position).getPrice() + "元");
         holder.txtSiteID.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final int pos = holder.getAdapterPosition(); // 正確做法
                 String siteID = siteAll.get(pos).getSiteID();
-                String price = siteAll.get(pos).getPrice();
+//                String price = siteAll.get(pos).getPrice();
                 String site_id = siteAll.get(pos).getSite_id();
                 // 將事件控制權交回給 RestaurantListActivity 負責 不應在此處處理(可以這樣 但觀念錯)
-                listener.onClick( pos, siteID, price );
-
+//                listener.onClick( pos, siteID, price );
+                listener.onClick(pos, siteID);
                 SharedPreferences.Editor editor = userData.edit();
-                editor.putString("siteID",siteID);
-                editor.putString("site_id",site_id);
+                editor.putString("siteID",siteID);      //場地編號 eg.A1111
+                editor.putString("site_id",site_id);    //場地id  eg.1
+                editor.putString("price",holder.txtPrice.getText().toString());
                 editor.apply();
 
             }

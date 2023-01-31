@@ -25,6 +25,7 @@ public class SettlementActivity extends AppCompatActivity {
 
         userData =getSharedPreferences("userData",MODE_PRIVATE);
 
+
         String name = userData.getString("name","");
         String tel = userData.getString("mobile","");
         String time = userData.getString("time","");
@@ -41,6 +42,13 @@ public class SettlementActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intentMaintain = new Intent(SettlementActivity.this, MainActivity.class);
+                startActivity(intentMaintain);
+            }
+        });
+        binding.button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentMaintain = new Intent(SettlementActivity.this, PayActivity.class);
                 startActivity(intentMaintain);
             }
         });

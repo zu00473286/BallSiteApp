@@ -84,6 +84,7 @@ public class SlideshowFragment extends Fragment {
             //產生Task準備給executor執行
             executor.execute(apiCaller);
 
+
         binding.ReviceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

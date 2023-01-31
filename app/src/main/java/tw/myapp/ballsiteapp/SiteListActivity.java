@@ -35,7 +35,7 @@ public class SiteListActivity extends AppCompatActivity {
         // 清單被點選時的行為
         siteItemClickListener = new SiteItemClickListener() {
             @Override
-            public void onClick(int position, String siteID, String price) {
+            public void onClick(int position, String siteID) {
                 Intent intent = new Intent(SiteListActivity.this, ConfirmActivity.class);
                 startActivity(intent);
             }
