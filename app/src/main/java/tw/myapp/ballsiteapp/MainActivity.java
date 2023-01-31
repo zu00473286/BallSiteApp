@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         MediaType mType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(packet.toString(), mType);
         Request request = new Request.Builder()
-                .url("http://192.168.0.15:8123/api/site/SiteAll")
+                .url("http://192.168.255.56:8123/api/site/SiteAll")
                 .post(body)
                 .build();
 

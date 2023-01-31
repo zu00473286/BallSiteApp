@@ -105,6 +105,7 @@ public class VenueRentalActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = userData.edit();
                 editor.putString("time", period[i]);
+                editor.putInt("period_id", i);
                 editor.apply();
             }
         });
