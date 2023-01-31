@@ -2,6 +2,8 @@ package tw.myapp.ballsiteapp;
 
 import static android.database.sqlite.SQLiteDatabase.openOrCreateDatabase;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,6 +12,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.Toast;
@@ -18,6 +21,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -46,10 +50,11 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
 
-    SharedPreferences activityPreference;
-    Request request;
+
     SQLiteDatabase db;
     ExecutorService executor;
+
+    SharedPreferences memberDataPre;
 
     String createTable =
             "create table if not exists Sites(" +
@@ -57,17 +62,17 @@ public class MainActivity extends AppCompatActivity {
                     "no_id text," +
                     "category_id text);";
 
-    Handler handler = new Handler(Looper.getMainLooper()){
+    Handler handler = new Handler(Looper.getMainLooper()) {
         @Override
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
             String jsonString;
             Bundle bundle = msg.getData();
 
-                db.execSQL(createTable);
-                jsonString=bundle.getString("data");
-                JSonToDB2 j2db = new JSonToDB2(db);
-                j2db.writeToDatabase(jsonString);
+            db.execSQL(createTable);
+            jsonString = bundle.getString("data");
+            JSonToDB2 j2db = new JSonToDB2(db);
+            j2db.writeToDatabase(jsonString);
 
         }
     };
@@ -78,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        db=openOrCreateDatabase("Sites",MODE_PRIVATE,null);
+        db = openOrCreateDatabase("Sites", MODE_PRIVATE, null);
 
         db.execSQL(createTable);
         JSONObject packet = new JSONObject();
@@ -96,8 +101,8 @@ public class MainActivity extends AppCompatActivity {
                 .post(body)
                 .build();
 
-        executor= Executors.newSingleThreadExecutor();
-        SimpleAPIWorker downLoadData=new SimpleAPIWorker(request,handler);
+        executor = Executors.newSingleThreadExecutor();
+        SimpleAPIWorker downLoadData = new SimpleAPIWorker(request, handler);
         executor.execute(downLoadData);
 
         //checkA();
@@ -123,19 +128,20 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
     }
-    public void checkA(){
 
-        db=openOrCreateDatabase("Sites",MODE_PRIVATE,null);
+    public void checkA() {
+
+        db = openOrCreateDatabase("Sites", MODE_PRIVATE, null);
         db.execSQL(createTable);
 
 
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+
         return true;
     }
 
@@ -145,4 +151,41 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                AlertDialog.Builder logoutbtn = new AlertDialog.Builder(this);
+                logoutbtn.setTitle("登出");
+                logoutbtn.setMessage("確定要登出嗎?");
+                logoutbtn.setPositiveButton("是", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        memberDataPre = getSharedPreferences("memberDataPre", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = memberDataPre.edit();
+                        editor.remove("name");
+                        editor.remove("mobile");
+                        editor.remove("email");
+                        editor.apply();
+                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                    }
+                });
+                logoutbtn.setNegativeButton("否", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                AlertDialog dialog = logoutbtn.create();
+                dialog.show();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
+
+
+
+
+
