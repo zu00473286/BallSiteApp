@@ -160,11 +160,11 @@
         android:id="@+id/ReviceBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="528dp"
+        android:layout_marginTop="532dp"
         android:backgroundTint="#206CA5"
         android:text="修改資料"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

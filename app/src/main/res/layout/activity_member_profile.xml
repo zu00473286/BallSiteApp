@@ -76,8 +76,8 @@
 
     <EditText
         android:id="@+id/txtpassch"
-        android:layout_width="208dp"
-        android:layout_height="41dp"
+        android:layout_width="210dp"
+        android:layout_height="49dp"
         android:layout_marginTop="384dp"
         android:layout_marginEnd="32dp"
         android:ems="10"
@@ -102,7 +102,7 @@
         android:layout_width="207dp"
         android:layout_height="48dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="252dp"
+        android:layout_marginBottom="244dp"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -192,7 +192,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
-        android:layout_marginBottom="264dp"
+        android:layout_marginBottom="256dp"
         android:text="餘額:"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
