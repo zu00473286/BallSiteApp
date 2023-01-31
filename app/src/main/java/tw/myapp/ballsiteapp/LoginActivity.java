@@ -144,9 +144,13 @@ public class LoginActivity extends AppCompatActivity {
                     edit.putString("email", loginEmail).commit();//存入登入帳號到memberDataPre檔案
                 } else {
                     edit.remove("email");
+                    edit.remove("name");
+                    edit.remove("phone");
                     edit.apply();
                     edit.putString("email", loginEmail).commit();
                 }
+
+
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
             }else{
