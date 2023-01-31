@@ -9,12 +9,13 @@
 
     <TextView
         android:id="@+id/txtid"
-        android:layout_width="201sp"
-        android:layout_height="54sp"
-        android:layout_marginTop="160sp"
-        android:layout_marginEnd="36sp"
+        android:layout_width="199dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="156dp"
+        android:layout_marginEnd="40dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="這裡顯示編號" />
@@ -24,19 +25,19 @@
         android:layout_width="203sp"
         android:layout_height="47sp"
         android:layout_marginStart="172sp"
-        android:layout_marginTop="332sp"
-        android:textSize="18sp"
+        android:layout_marginTop="320dp"
+        android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="這裡顯示電話" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56sp"
-        android:layout_marginTop="448sp"
-        android:text="餘額:"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="320dp"
+        android:text="電話:"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -56,7 +57,7 @@
         android:id="@+id/Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56sp"
+        android:layout_marginStart="104dp"
         android:layout_marginTop="216sp"
         android:text="姓名:"
         android:textSize="25sp"
@@ -68,64 +69,54 @@
         android:layout_width="201sp"
         android:layout_height="45sp"
         android:layout_marginStart="172sp"
-        android:layout_marginTop="276sp"
-        android:textSize="18sp"
+        android:layout_marginTop="268dp"
+        android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="這裡顯示信箱" />
 
     <TextView
-        android:id="@+id/Name1"
-        android:layout_width="208sp"
-        android:layout_height="48sp"
-        android:layout_marginStart="172sp"
-        android:layout_marginTop="216sp"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="這裡顯示名字" />
-
-    <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56sp"
-        android:layout_marginTop="272sp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="268dp"
         android:text="信箱:"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/Name1"
+        android:layout_width="201dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="172sp"
+        android:layout_marginTop="216sp"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="這裡顯示名字" />
+
+    <TextView
         android:id="@+id/txtpn2"
         android:layout_width="207sp"
         android:layout_height="49sp"
-        android:layout_marginTop="448sp"
-        android:layout_marginEnd="20sp"
+        android:layout_marginTop="436dp"
+        android:layout_marginEnd="28dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="這裡顯示餘額" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56sp"
-        android:layout_marginTop="396sp"
-        android:text="密碼:"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56sp"
-        android:layout_marginTop="336sp"
-        android:text="電話:"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="436dp"
+        android:text="餘額:"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -135,13 +126,24 @@
         android:layout_width="208sp"
         android:layout_height="47sp"
         android:layout_marginStart="172sp"
-        android:layout_marginTop="392sp"
+        android:layout_marginTop="380dp"
         android:ems="10"
         android:inputType="textPassword"
-        android:textSize="18sp"
+        android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="這裡顯示密碼" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="380dp"
+        android:text="密碼:"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
@@ -158,10 +160,11 @@
         android:id="@+id/ReviceBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="544sp"
+        android:layout_marginTop="528dp"
         android:backgroundTint="#206CA5"
         android:text="修改資料"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

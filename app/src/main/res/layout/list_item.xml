@@ -19,12 +19,12 @@
             <ImageView
                 android:id="@+id/site_icon"
                 android:layout_width="wrap_content"
-                android:layout_height="117dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="false"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="19dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="9dp"
                 android:layout_marginRight="16dp"
                 tools:srcCompat="@tools:sample/avatars" />
 
@@ -43,11 +43,11 @@
 
             <TextView
                 android:id="@+id/site_name"
-                android:layout_width="93dp"
-                android:layout_height="wrap_content"
+                android:layout_width="119dp"
+                android:layout_height="40dp"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="29dp"
-                android:layout_marginLeft="125dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginLeft="97dp"
                 android:layout_marginTop="16dp"
                 android:layout_toEndOf="@+id/sitename_id"
                 android:layout_toRightOf="@+id/site_icon"
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/sitename_id"
                 android:layout_marginStart="6dp"
-                android:layout_marginLeft="6dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="23dp"
                 android:layout_toEndOf="@+id/site_icon"
                 android:layout_toRightOf="@+id/site_icon"
@@ -68,12 +68,12 @@
 
             <TextView
                 android:id="@+id/site_price"
-                android:layout_width="87dp"
-                android:layout_height="wrap_content"
+                android:layout_width="122dp"
+                android:layout_height="41dp"
                 android:layout_below="@+id/site_name"
-                android:layout_marginStart="25dp"
-                android:layout_marginLeft="129dp"
-                android:layout_marginTop="29dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="23dp"
+                android:layout_marginTop="13dp"
                 android:layout_toEndOf="@+id/siteprice_id"
                 android:textSize="20dp" />
         </RelativeLayout>
