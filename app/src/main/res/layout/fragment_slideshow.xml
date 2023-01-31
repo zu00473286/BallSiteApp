@@ -15,7 +15,7 @@
         android:layout_marginEnd="40dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="這裡顯示編號" />
@@ -26,7 +26,7 @@
         android:layout_height="47sp"
         android:layout_marginStart="172sp"
         android:layout_marginTop="320dp"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="這裡顯示電話" />
@@ -38,7 +38,7 @@
         android:layout_marginStart="104dp"
         android:layout_marginTop="320dp"
         android:text="電話:"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,7 +49,7 @@
         android:layout_marginStart="56sp"
         android:layout_marginTop="156sp"
         android:text="會員編號:"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -60,7 +60,7 @@
         android:layout_marginStart="104dp"
         android:layout_marginTop="216sp"
         android:text="姓名:"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -70,7 +70,7 @@
         android:layout_height="45sp"
         android:layout_marginStart="172sp"
         android:layout_marginTop="268dp"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="這裡顯示信箱" />
@@ -82,7 +82,7 @@
         android:layout_marginStart="104dp"
         android:layout_marginTop="268dp"
         android:text="信箱:"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -92,7 +92,7 @@
         android:layout_height="38dp"
         android:layout_marginStart="172sp"
         android:layout_marginTop="216sp"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="這裡顯示名字" />
@@ -105,7 +105,7 @@
         android:layout_marginEnd="28dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="這裡顯示餘額" />
@@ -117,7 +117,7 @@
         android:layout_marginStart="104dp"
         android:layout_marginTop="436dp"
         android:text="餘額:"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -129,7 +129,7 @@
         android:layout_marginTop="380dp"
         android:ems="10"
         android:inputType="textPassword"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="這裡顯示密碼" />
@@ -141,7 +141,7 @@
         android:layout_marginStart="104dp"
         android:layout_marginTop="380dp"
         android:text="密碼:"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -151,7 +151,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="64sp"
         android:text="會員資料"
-        android:textSize="35sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

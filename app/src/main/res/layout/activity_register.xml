@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="64sp"
         android:text="註冊"
-        android:textSize="35sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,10 +23,48 @@
         android:id="@+id/NameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="184sp"
-        android:layout_marginTop="148sp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="152dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/EmailText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="204dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/TelText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="256dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/PassCheckText"
+        android:layout_width="215sp"
+        android:layout_height="41sp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="360dp"
+        android:ems="10"
+        android:hint="請再次輸入密碼"
+        android:inputType="textPassword"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,11 +72,12 @@
         android:id="@+id/PassText"
         android:layout_width="211sp"
         android:layout_height="44sp"
-        android:layout_marginStart="184sp"
-        android:layout_marginTop="304sp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="308dp"
         android:ems="10"
         android:hint="6~8個英文或數字"
         android:inputType="textPassword"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,19 +88,7 @@
         android:layout_marginStart="56sp"
         android:layout_marginTop="208sp"
         android:text="E-Mail:"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/PassCheckText"
-        android:layout_width="215sp"
-        android:layout_height="41sp"
-        android:layout_marginStart="184sp"
-        android:layout_marginTop="356sp"
-        android:ems="10"
-        android:hint="請再次輸入密碼"
-        android:inputType="textPassword"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -72,7 +99,7 @@
         android:layout_marginStart="56sp"
         android:layout_marginTop="356sp"
         android:text="確認密碼:"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -83,7 +110,7 @@
         android:layout_marginStart="56sp"
         android:layout_marginTop="160sp"
         android:text="姓名:"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -94,18 +121,7 @@
         android:layout_marginStart="56sp"
         android:layout_marginTop="252sp"
         android:text="電話:"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/EmailText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="184sp"
-        android:layout_marginTop="200sp"
-        android:ems="10"
-        android:inputType="textPersonName"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -116,18 +132,7 @@
         android:layout_marginStart="56sp"
         android:layout_marginTop="304sp"
         android:text="密碼:"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/TelText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="184sp"
-        android:layout_marginTop="252sp"
-        android:ems="10"
-        android:inputType="textPersonName"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="64sp"
         android:text="會員資料"
-        android:textSize="35sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +47,7 @@
         android:layout_height="44dp"
         android:layout_marginTop="128dp"
         android:layout_marginEnd="36dp"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -59,7 +59,7 @@
         android:layout_marginTop="232dp"
         android:ems="10"
         android:inputType="phone"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -70,7 +70,7 @@
         android:layout_marginStart="88dp"
         android:layout_marginTop="332dp"
         android:text="密碼:"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -82,7 +82,7 @@
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:inputType="textPassword"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -93,7 +93,7 @@
         android:layout_marginStart="88dp"
         android:layout_marginTop="280dp"
         android:text="信箱:"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -103,7 +103,7 @@
         android:layout_height="48dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="244dp"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -114,7 +114,7 @@
         android:layout_marginStart="40sp"
         android:layout_marginTop="128dp"
         android:text="會員編號:"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -125,7 +125,7 @@
         android:layout_marginStart="52dp"
         android:layout_marginTop="384dp"
         android:text="確認密碼:"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -137,7 +137,7 @@
         android:layout_marginTop="332dp"
         android:ems="10"
         android:inputType="numberPassword"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -149,7 +149,7 @@
         android:layout_marginTop="180dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -160,7 +160,7 @@
         android:layout_marginStart="88dp"
         android:layout_marginTop="232dp"
         android:text="電話:"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -171,7 +171,7 @@
         android:layout_marginStart="88dp"
         android:layout_marginTop="180dp"
         android:text="姓名:"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -183,7 +183,7 @@
         android:layout_marginTop="280dp"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -194,7 +194,7 @@
         android:layout_marginStart="88dp"
         android:layout_marginBottom="256dp"
         android:text="餘額:"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

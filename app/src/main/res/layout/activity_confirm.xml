@@ -16,7 +16,7 @@
         android:layout_marginEnd="135sp"
         android:text="@string/TitleView"
         android:textAlignment="center"
-        android:textSize="35sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -50,7 +50,7 @@
         android:layout_marginTop="140sp"
         android:layout_marginEnd="52sp"
         android:textAlignment="center"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="123" />
@@ -62,7 +62,7 @@
         android:layout_marginTop="448sp"
         android:layout_marginEnd="52sp"
         android:textAlignment="center"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="200元" />
@@ -74,7 +74,7 @@
         android:layout_marginTop="260sp"
         android:layout_marginEnd="52sp"
         android:textAlignment="center"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="2023/01/18" />
@@ -87,7 +87,7 @@
         android:layout_marginTop="324sp"
         android:text="@string/textView37"
         android:textAlignment="center"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -98,7 +98,7 @@
         android:layout_marginTop="384sp"
         android:layout_marginEnd="52sp"
         android:textAlignment="center"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="2號羽球場" />
@@ -110,7 +110,7 @@
         android:layout_marginTop="328sp"
         android:layout_marginEnd="52sp"
         android:textAlignment="center"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="9:00.13:00.17:00" />
@@ -123,7 +123,7 @@
         android:layout_marginTop="384sp"
         android:text="@string/PlaceView"
         android:textAlignment="center"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -135,7 +135,7 @@
         android:layout_marginTop="140sp"
         android:text="@string/NameView"
         android:textAlignment="center"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -147,7 +147,7 @@
         android:layout_marginTop="260sp"
         android:text="@string/TimeView"
         android:textAlignment="center"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -159,7 +159,7 @@
         android:layout_marginTop="200sp"
         android:text="@string/PhonewView"
         android:textAlignment="center"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -171,7 +171,7 @@
         android:layout_marginTop="448sp"
         android:text="@string/TotalView"
         android:textAlignment="center"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -182,7 +182,7 @@
         android:layout_marginTop="200sp"
         android:layout_marginEnd="52sp"
         android:textAlignment="center"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="0932-123123" />

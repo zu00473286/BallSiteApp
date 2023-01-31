@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="64sp"
         android:text="客服"
-        android:textSize="35sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,20 +22,9 @@
         android:id="@+id/Acc"
         android:layout_width="86sp"
         android:layout_height="23sp"
-        android:layout_marginStart="168sp"
-        android:layout_marginTop="172sp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="176dp"
         android:text="撥打電話"
-        android:textAlignment="center"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/txtEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="184sp"
-        android:layout_marginTop="224sp"
-        android:text="傳送郵件"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -44,9 +33,20 @@
         android:id="@+id/txtMap"
         android:layout_width="130sp"
         android:layout_height="20sp"
-        android:layout_marginStart="148sp"
-        android:layout_marginTop="272sp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="276dp"
         android:text="開啟地圖"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="228dp"
+        android:text="傳送郵件"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
