@@ -59,8 +59,7 @@ public class ConfirmActivity extends AppCompatActivity {
         binding.txtymd.setText(ymd);
         binding.textView35.setText(siteID);
         binding.textView36.setText(price);
-
-
+        
         binding.OKBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,7 +70,6 @@ public class ConfirmActivity extends AppCompatActivity {
                     //String noID = binding.textView35.getText().toString();
                     //cursor = db.rawQuery("SELECT site_id FROM Sites WHERE no_id=" + noID, null);
                     data.put("site_id",Integer.parseInt(site_id));
-
 
                     data.put("member_id",Integer.parseInt(userData.getString("member_id","")));
                     data.put("day",binding.txtymd.getText().toString());
@@ -93,8 +91,6 @@ public class ConfirmActivity extends AppCompatActivity {
                         .build();
                 SimpaleAPIWorker apiCaller = new SimpaleAPIWorker(request);
                 executor.execute(apiCaller);
-
-
             }
         });
         binding.BackBtn.setOnClickListener(new View.OnClickListener() {
@@ -112,21 +108,18 @@ public class ConfirmActivity extends AppCompatActivity {
             Bundle bundle = msg.getData();
 
             if (bundle.getInt("status") == 11) {
-            binding.txtName2.setText(bundle.getString("name"));
-            binding.txtTel2.setText(bundle.getString("mobile"));
-            binding.txtTime2.setText(bundle.getString("time"));
-            binding.txtymd.setText(bundle.getString("ymd"));
-            binding.textView35.setText(bundle.getString("siteID"));
+                binding.txtName2.setText(bundle.getString("name"));
+                binding.txtTel2.setText(bundle.getString("mobile"));
+                binding.txtTime2.setText(bundle.getString("time"));
+                binding.txtymd.setText(bundle.getString("ymd"));
+                binding.textView35.setText(bundle.getString("siteID"));
 
-            Toast.makeText(ConfirmActivity.this, "租借成功", Toast.LENGTH_SHORT).show();
-
-
-            Intent intentMaintain = new Intent(ConfirmActivity.this, SettlementActivity.class);
-            startActivity(intentMaintain);
+                Toast.makeText(ConfirmActivity.this, "租借成功", Toast.LENGTH_SHORT).show();
+                Intent intentMaintain = new Intent(ConfirmActivity.this, SettlementActivity.class);
+                startActivity(intentMaintain);
 
             } else {
                 Toast.makeText(ConfirmActivity.this, "租借失敗", Toast.LENGTH_SHORT).show();
-
             }
         }
     };
@@ -134,7 +127,6 @@ public class ConfirmActivity extends AppCompatActivity {
     public class SimpaleAPIWorker implements Runnable {
         OkHttpClient client;
         Request request;
-
         public SimpaleAPIWorker(Request request) {
             client = new OkHttpClient();
             this.request = request;
@@ -151,16 +143,12 @@ public class ConfirmActivity extends AppCompatActivity {
                 Message m = Handler.obtainMessage();
                 Bundle bundle = new Bundle();
                 if( result.getInt("status")== 11) {
-
                     bundle.putString("mesg", result.getString("mesg"));
                     bundle.putInt("status",result.getInt("status") );
                 } else {
-
                     bundle.putString("mesg", "登入失敗,請確認有無帳號,或密碼是否有誤");
                     bundle.putInt("status",result.getInt("status") );
-
                 }
-
                 m.setData(bundle);
                 Handler.sendMessage(m);
             } catch (Exception e) {

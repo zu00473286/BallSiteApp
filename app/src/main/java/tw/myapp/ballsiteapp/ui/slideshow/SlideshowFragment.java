@@ -68,27 +68,27 @@ public class SlideshowFragment extends Fragment {
         //如果SharedPreferance裡面的memberDataPre檔案裡的name沒有資料，就從網路下載會員資料
 
 
-            JSONObject packet = new JSONObject();
-            try {
-                JSONObject data = new JSONObject();
-                data.put("email", memberEmailDataCheck);//抓出登入時儲存在SharedPreferance的會員EMAIL
-                packet.put("data", data);
+        JSONObject packet = new JSONObject();
+        try {
+            JSONObject data = new JSONObject();
+            data.put("email", memberEmailDataCheck);//抓出登入時儲存在SharedPreferance的會員EMAIL
+            packet.put("data", data);
 
-                Log.e("JSON", "這裡是從網路下載的會員資料");
-                Toast.makeText(getActivity(), "已送出EMAIL抓取會員資料", Toast.LENGTH_SHORT).show();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            //把email資料封裝成JSON格式 透過網路傳給Sever
-            MediaType mType = MediaType.parse("application/json");
-            RequestBody body = RequestBody.create(packet.toString(), mType);
-            Request request = new Request.Builder()
-                    .url("http://20.2.70.0:8123/api/member/memberAll")
-                    .post(body)
-                    .build();
-            SimpaleAPIWorker apiCaller = new SimpaleAPIWorker(request, memberDataHandler);
-            //產生Task準備給executor執行
-            executor.execute(apiCaller);
+            Log.e("JSON", "這裡是從網路下載的會員資料");
+            Toast.makeText(getActivity(), "已送出EMAIL抓取會員資料", Toast.LENGTH_SHORT).show();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        //把email資料封裝成JSON格式 透過網路傳給Sever
+        MediaType mType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(packet.toString(), mType);
+        Request request = new Request.Builder()
+                .url("http://20.2.70.0:8123/api/member/memberAll")
+                .post(body)
+                .build();
+        SimpaleAPIWorker apiCaller = new SimpaleAPIWorker(request, memberDataHandler);
+        //產生Task準備給executor執行
+        executor.execute(apiCaller);
 
 
         binding.ReviceBtn.setOnClickListener(new View.OnClickListener() {
@@ -107,21 +107,21 @@ public class SlideshowFragment extends Fragment {
             super.handleMessage(msg);
             Bundle bundle = msg.getData();
 
-                binding.txtid.setText(bundle.getString("member_id"));
-                binding.Name1.setText(bundle.getString("name"));
-                binding.tel1.setText(bundle.getString("mobile"));
-                binding.email1.setText(bundle.getString("email"));
-                binding.pass1.setText(bundle.getString("passwd"));
-                binding.txtpn2.setText(bundle.getString("money"));
+            binding.txtid.setText(bundle.getString("member_id"));
+            binding.Name1.setText(bundle.getString("name"));
+            binding.tel1.setText(bundle.getString("mobile"));
+            binding.email1.setText(bundle.getString("email"));
+            binding.pass1.setText(bundle.getString("passwd"));
+            binding.txtpn2.setText(bundle.getString("money"));
 
-                SharedPreferences.Editor editor = userData.edit();
-                editor.putString("member_id", binding.txtid.getText().toString());
-                editor.putString("name", binding.Name1.getText().toString());
-                editor.putString("mobile", binding.tel1.getText().toString());
-                editor.putString("email", binding.email1.getText().toString());
-                editor.putString("passwd", binding.pass1.getText().toString());
-                editor.putString("money", binding.txtpn2.getText().toString());
-                editor.apply();
+            SharedPreferences.Editor editor = userData.edit();
+            editor.putString("member_id", binding.txtid.getText().toString());
+            editor.putString("name", binding.Name1.getText().toString());
+            editor.putString("mobile", binding.tel1.getText().toString());
+            editor.putString("email", binding.email1.getText().toString());
+            editor.putString("passwd", binding.pass1.getText().toString());
+            editor.putString("money", binding.txtpn2.getText().toString());
+            editor.apply();
         }
     };
     class SimpaleAPIWorker implements  Runnable {
@@ -146,12 +146,12 @@ public class SlideshowFragment extends Fragment {
                 Message m = memberDataHandler.obtainMessage();
                 Bundle bundle = new Bundle();
 
-                    bundle.putString("member_id", result.getString("member_id"));
-                    bundle.putString("name", result.getString("name"));
-                    bundle.putString("mobile", result.getString("mobile"));
-                    bundle.putString("email", result.getString("email"));
-                    bundle.putString("passwd", result.getString("passwd"));
-                    bundle.putString("money", result.getString("money"));
+                bundle.putString("member_id", result.getString("member_id"));
+                bundle.putString("name", result.getString("name"));
+                bundle.putString("mobile", result.getString("mobile"));
+                bundle.putString("email", result.getString("email"));
+                bundle.putString("passwd", result.getString("passwd"));
+                bundle.putString("money", result.getString("money"));
 
                 m.setData(bundle);
                 memberDataHandler.sendMessage(m);
@@ -159,7 +159,6 @@ public class SlideshowFragment extends Fragment {
                 e.printStackTrace();
             }
         }
-
     }
 
     @Override
