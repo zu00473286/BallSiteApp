@@ -60,7 +60,7 @@ public class SlideshowFragment extends Fragment {
         Log.e("JSON", "會員email" + userData.getString("email", "查無資料"));
         String memberNameDataCheck = userData.getString("name", "查無資料");
         //如果SharedPreferance裡面的memberDataPre檔案裡的name沒有資料，就從網路下載會員資料
-        if (memberNameDataCheck.equals("查無資料")) {
+
 
             JSONObject packet = new JSONObject();
             try {
@@ -77,29 +77,13 @@ public class SlideshowFragment extends Fragment {
             MediaType mType = MediaType.parse("application/json");
             RequestBody body = RequestBody.create(packet.toString(), mType);
             Request request = new Request.Builder()
-                    .url("http://192.168.0.15:8123/api/member/memberAll")
+                    .url("http://192.168.255.56:8123/api/member/memberAll")
                     .post(body)
                     .build();
             SimpaleAPIWorker apiCaller = new SimpaleAPIWorker(request, memberDataHandler);
             //產生Task準備給executor執行
             executor.execute(apiCaller);
-        } else {
-            //直接從「透過SharedPreferance儲存在手機裡(Activity間共用)的"memberDataPre"檔案」撈出會員資料顯示
-            String noidData = userData.getString("member_id", "查無資料");
-            String nameData = userData.getString("name", "查無資料");
-            String phoneData = userData.getString("mobile", "查無資料");
-            String emailData = userData.getString("email", "查無資料");
-            String passwdData = userData.getString("passwd", "查無資料");
-            String moneyData = userData.getString("money", "查無資料");
 
-            binding.txtid.setText(noidData);
-            binding.Name1.setText(nameData);
-            binding.tel1.setText(phoneData);
-            binding.email1.setText(emailData);
-            binding.pass1.setText(passwdData);
-            binding.txtpn2.setText(moneyData);
-            Log.e("JSON", "這裡是從SharePreferance取出的會員資料");
-        }
         binding.ReviceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

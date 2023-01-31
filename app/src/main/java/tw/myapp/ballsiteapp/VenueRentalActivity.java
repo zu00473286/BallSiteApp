@@ -50,7 +50,7 @@ public class VenueRentalActivity extends AppCompatActivity {
                 DatePickerDialog dialog = new DatePickerDialog(VenueRentalActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        binding.CalenderSelectBtn.setText("日期:" + year + "/" + (month+1)+ "/" + dayOfMonth );
+                        binding.CalenderSelectBtn.setText(year + "/" + (month+1)+ "/" + dayOfMonth );
                         SharedPreferences.Editor editor = userData.edit();
                         editor.putString("ymd",binding.CalenderSelectBtn.getText().toString());
                         editor.apply();
@@ -105,6 +105,7 @@ public class VenueRentalActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = userData.edit();
                 editor.putString("time", period[i]);
+                editor.putInt("period_id", i);
                 editor.apply();
             }
         });

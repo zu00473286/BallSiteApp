@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -32,7 +34,7 @@ public class ConfirmActivity extends AppCompatActivity {
     ExecutorService executor;
     SharedPreferences userData;
 
-
+    SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +47,10 @@ public class ConfirmActivity extends AppCompatActivity {
         String name = userData.getString("name","");
         String tel = userData.getString("mobile","");
         String time = userData.getString("time","");
+        int pos = userData.getInt("period_id",-1);
         String ymd = userData.getString("ymd","");
         String siteID = userData.getString("siteID","");
+        String site_id = userData.getString("site_id","");
 
         binding.txtName2.setText(name);
         binding.txtTime2.setText(time);
@@ -56,18 +60,21 @@ public class ConfirmActivity extends AppCompatActivity {
 
 
 
-
-
         binding.OKBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 JSONObject packet = new JSONObject();
                 try {
                     JSONObject data = new JSONObject();
-                    data.put("member_id",userData.getString("member_id",""));
-                    data.put("siteID",binding.textView35.getText().toString());
-                    data.put("ymd",binding.txtymd.getText().toString());
-                    data.put("time",binding.txtTime2.getText().toString());
+                    //Cursor cursor;
+                    //String noID = binding.textView35.getText().toString();
+                    //cursor = db.rawQuery("SELECT site_id FROM Sites WHERE no_id=" + noID, null);
+                    data.put("site_id",Integer.parseInt(site_id));
+
+
+                    data.put("member_id",Integer.parseInt(userData.getString("member_id","")));
+                    data.put("day",binding.txtymd.getText().toString());
+                    data.put("period_id",pos);
                     packet.put("data", data);
                     Log.w("API格式", packet.toString(5));
                 } catch (JSONException e) {
@@ -80,7 +87,7 @@ public class ConfirmActivity extends AppCompatActivity {
                 executor= Executors.newSingleThreadExecutor();
 
                 Request request = new Request.Builder()
-                        .url("http://192.168.0.15:8123/api/site/rentSite")
+                        .url("http://192.168.255.56:8123/api/site/rentSite")
                         .post(body)
                         .build();
                 SimpaleAPIWorker apiCaller = new SimpaleAPIWorker(request);
