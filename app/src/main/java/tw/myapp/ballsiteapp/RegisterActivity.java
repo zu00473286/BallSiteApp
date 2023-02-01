@@ -42,7 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
                 contextEditor.putBoolean("register", true);
                 contextEditor.apply();
                 Toast.makeText(RegisterActivity.this, "註冊成功", Toast.LENGTH_SHORT).show();
-                Intent intentToMeetingRoom = new Intent(RegisterActivity.this, MainActivity.class);
+                Intent intentToMeetingRoom = new Intent(RegisterActivity.this, LoginActivity.class);
                 startActivity(intentToMeetingRoom);
             } else {
                 Toast.makeText(RegisterActivity.this, "註冊失敗", Toast.LENGTH_SHORT).show();
@@ -87,8 +87,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                 Toast.makeText(RegisterActivity.this, "註冊成功", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                startActivity(intent);
+
                 } else {
                     Toast.makeText(RegisterActivity.this, "請確認輸入相同密碼,且欄位不可空白", Toast.LENGTH_LONG).show();
                 }
