@@ -87,7 +87,8 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                 Toast.makeText(RegisterActivity.this, "註冊成功", Toast.LENGTH_SHORT).show();
-              //  Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
                 } else {
                     Toast.makeText(RegisterActivity.this, "請確認輸入相同密碼,且欄位不可空白", Toast.LENGTH_LONG).show();
                 }

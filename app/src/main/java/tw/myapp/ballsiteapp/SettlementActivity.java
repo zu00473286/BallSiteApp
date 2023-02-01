@@ -56,7 +56,7 @@ public class SettlementActivity extends AppCompatActivity {
         binding.btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentMaintain = new Intent(SettlementActivity.this, LoginActivity.class);
+                Intent intentMaintain = new Intent(SettlementActivity.this, MainActivity.class);
                 startActivity(intentMaintain);
             }
         });
